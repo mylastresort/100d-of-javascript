@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+
+
+img{
+
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+#previous{
+    left: 0;
+    position: absolute;
+    bottom: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+    
+}
+
+
+
+#next{
+    right: 0;
+    position: absolute;
+    bottom: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+}
