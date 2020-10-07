@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Music Player</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/88df246fa3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <audio preload="metadata" src="" id="current-song"></audio>
+    <header>Music Player</header>
+    <section class="the-app">
+        <h3 class="songName" >song's name</h3>
+        <h5 class="songAlbum" >Album</h5>
+        <div class="the-cover">
+            <img src="" alt="the art cover" id="cover" >
+        </div>
+        <div class="duration">
+            <span id="time-spent">time-spent</span>
+            <span id="songDuration" class="songDuration" >
+                <span class="minutes" >min</span><span>:</span><span class="seconds" >s</span>
+            </span>
+        </div>
+        <div id="controls">
+            <span id="next">next</span>
+            <span id="playPause">play/pause</span>
+            <span id="prev">previous</span>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>

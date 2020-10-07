@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: goldenrod;
+}
+
+header{
+    text-align: center;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: unset;
+}
+
+.the-app{
+    margin: auto;
+    width: 30%;
+    box-shadow: inset black 2px -2px 30px;
+    border: 3px solid;
+    padding: 200px;
+    height: 80vh;
+    position: relative;
+}
+
+#next{
+    top: 83%;
+    right: 20%;
+    margin: auto;
+    position: absolute;
+    cursor: pointer;
+}
+#prev{
+    top: 83%;
+    left: 20%;
+    margin: auto;
+    position: absolute;
+    cursor: pointer;
+}
+#playPause{
+    top: 83%;
+    margin: auto;
+    position: absolute;
+    left: 45%;
+    cursor: pointer;
+}
+#songDuration{
+    top: 70%;
+    right: 6%;
+    margin: auto;
+    position: absolute;
+}
+#time-spent{
+    top: 70%;
+    left: 6%;
+    margin: auto;
+    position: absolute;
+}
+h3{
+    top: 3%;
+    left: 5%;
+    margin: auto;
+    position: absolute;
+}
+h5{
+    top: 8%;
+    left: 5%;
+    margin: auto;
+    position: absolute;
+}
+
+img{
+    position: absolute;
+    height: 50%;
+    box-shadow: 2px -0.5px 30px #7020da;
+    /* #89da20 #da2089*/
+    left: 10%;
+    top: 15%;
+    width: 80%;
+
+}
