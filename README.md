@@ -77,3 +77,63 @@ Demo : https://codepen.io/MehdiAoussiad/full/vYGwyya
 **Day 21 : Random Jokes with fetch using Async await syntax.**
 
 Demo : https://codepen.io/MehdiAoussiad/full/oNxRVrN
+
+**Day 22 : KeyCodes app with vanilla Javascript.**
+
+Demo : https://codepen.io/MehdiAoussiad/pen/OJNezdQ
+
+**Day 23 : Infinite Scroll.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/mdPNybJ
+
+**Day 24 : Simple Gsap Animation.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/xxVvLmx
+
+**Day 25 : Side Navigation.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/JjXgwvg
+
+**Day 26 : Locale Storage Example.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/gOMYWxX
+
+**Day 27 : Meal Generator with vanilla JS using Fetch.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/bGebPPd
+
+**Day 28 : Skills bar.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/oNLNdwJ
+
+**Day 29 : Loading Buttons.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/KKMwggz
+
+**Day 30 : User Filter.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/VwjYqWG
+
+**Day 31 : Hidden User.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/bGedEJE
+
+**Day 32 : Simple Typing Speed game with vanilla Javascript.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/XWKmJMj
+
+**Day 33 : Hotel Reservation Design.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/yLJYROg
+
+**Day 34 : Text Highlight.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/WNxroGv
+
+**Day 35 : Color Picker with Html,Css, and Vanilla JS.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/OJXMGaB
+
+**Day 36 : 404 Page Design.**
+
+Demo : https://codepen.io/MehdiAoussiad/full/OJXNQEe
