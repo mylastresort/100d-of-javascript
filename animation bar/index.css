@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: lightcoral;
+}
+
+
+.progress-bar{
+    height: 35px;
+    width: 250px;
+    border: 2px solid darkblue;
+    right: 50%;
+    top: 50%;
+    position: absolute;
+}
+
+.progress-bar-fill{
+    height: 100%;
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    transition: width 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-text{
+    margin-left: 10px;
+    background: lightblue;
+    position: absolute;
+    text-align: center;
+    right: 43%;
+    font-weight: bold;
+}
