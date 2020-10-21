@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #5a327f;
+}
+header{
+    font-family: 'Gochi Hand', cursive;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 8%;
+}
+#typeArea{
+    width: 50vw;
+    height: 200px;
+    position: relative;
+    font-family: 'Patrick Hand', cursive;
+    font-size: x-large;
+}
+.typeArea{
+    text-align: center;
+    margin-top: 100px;
+}
+#color{
+    cursor: pointer;
+}
+#id{
+    cursor: pointer;
+}
+.controls{
+    left: 25%;
+    position: absolute;
+}
+#add{
+    position: absolute;
+    right: 25%;
+    font-size: large;
+    font-family: 'Handlee', cursive ;
+    color: black;
+    border-radius: 14px;
+    margin-top: 10px;
+    border: 0px;
+    background-color: #48a05baf;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.section{
+    margin-top: 100px;
+}
+
+.notes{
+    background-color: rgba(220, 20, 60, 0.336);
+    box-shadow: black -1px 10px 70px;
+    width: 40vw;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 30px;
+}
