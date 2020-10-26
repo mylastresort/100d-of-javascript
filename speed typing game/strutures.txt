@@ -1,0 +1,35 @@
+
+
+
+///ONE PARAMETER: the space control the game's logic
+
+
+//to show the text
+////make the textarea invisible
+////if the letter was right change the color of the transparent letter with white
+////if the letter was wrong or the uses passes the limit of the word change the color with red and show it in instead of the letter that was transparent 
+////make a curet and build the animation "transition width px"
+////add a functionality like the "focus on their app" to active the autofocus on the textarea!!!
+
+
+
+//to test each letter
+////split the value of the textarea due to the space key
+////take the last element of the array(assuming its test)
+////match it with the "nextWord"(each letter)
+////make all letters with red starting from the right ones in the word with black or white
+
+
+
+
+//to test each word
+////split the value of the textarea due to the space key
+////take the last element of the array(assuming its test)
+////match it with the "nextWord"(the whole the word)
+////save it in the rightWords if the match condition is true
+////block the last word if the match condition is true
+
+
+//to calculate the score
+////counting the charachters on the right words array plus (length-1) of space key 
+////perform the equation:take the numbers of the charachters and devide it by the time spent
