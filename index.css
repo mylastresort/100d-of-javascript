@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #8fff46;
+}
+
+.countdown{
+  margin: auto;
+  border: black solid 4px;
+  border-radius: 30px;
+  width: 50%;
+  padding: 50px;
+  margin-top: 15%;
+}
+.timer{
+  display: flex;
+}
+
+
+span, p{
+  margin: 40px;
+  font-size: 1.6rem;
+  font-family: 'Turret Road', cursive;
+  
+}
+
+.properties{
+  display: flex;
+}
+#days{
+  padding-left: 0px;
+}
+#hours{
+  padding-left: 30px;
+}
+#minutes{
+  padding-left: 60px;
+}
+#seconds{
+  padding-left: 50px;
+}
+p{
+  margin-bottom: 0;
+  margin-top: 0;
+  margin: auto;
+}
