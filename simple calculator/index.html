@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple calculator</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="interface" name="interface" >
+    <form class="controls" name="controls">
+      <input class="display result" name="result"value="="></input>
+      <input class="display input" name="input" value="0"></input>
+      <input id="btns" onClick="controls.input.value+=''" value="AC">
+      <input id="btns" onClick="controls.input.value+='7'" value="7">
+      <input id="btns" onClick="controls.input.value+='8'" value="8">
+      <input id="btns" onClick="controls.input.value+='9'" value="9">
+      <input id="btns" onClick="controls.input.value+='-'" value="-">
+      <input id="btns" onClick="controls.input.value+='4'" value="4">
+      <input id="btns" onClick="controls.input.value+='5'" value="5">
+      <input id="btns" onClick="controls.input.value+='6'" value="6">
+      <input id="btns" onClick="controls.input.value+='/'" value="&#247;">
+      <input id="btns" onClick="controls.input.value+='1'" value="1">
+      <input id="btns" onClick="controls.input.value+='2'" value="2">
+      <input id="btns" onClick="controls.input.value+='3'" value="3">
+      <input id="btns" onClick="controls.input.value+='*'" value="x">
+      <input id="btns" onClick="controls.input.value+='%'" value="%">
+      <input id="btns" onClick="controls.input.value+='0'" value="0">
+      <input id="btns" onClick="controls.input.value+='+'" value="+">
+      <input id="btns" onClick="controls.result.value=eval(controls.input.value)" value="=">
+    </form>
+  </div>
+
+
+  
+</body>
+</html>
