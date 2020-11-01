@@ -46,21 +46,13 @@ Demo : https://codepen.io/MehdiAoussiad/full/WNwLpLo
 
 Demo : https://codepen.io/MehdiAoussiad/full/WNwWKBJ
 
-**Day 14 : Rock Paper Scissors Game.**
-
-Demo : https://codepen.io/MehdiAoussiad/full/vYGwyya
-
-**Day 15 : Simple Gsap Animation.**
-
-Demo : https://codepen.io/MehdiAoussiad/full/xxVvLmx
-
 **Day 16 : Text Highlight.**
 
 Demo : https://codepen.io/MehdiAoussiad/full/WNxroGv
 
 **Day 17 : Color Picker.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/OJXMGaB
+Demo : https://simonwep.github.io/pickr/
 
 **Day 18 : Simple Clock using moment.js.**
 
