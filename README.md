@@ -2,13 +2,15 @@
 
 **Day 2 : Simple ToDo List.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/jOqxydp
+Demo : https://codepen.io/kayfo23/pen/OJMWbPZ
 
 **Day 3 : Simple Music Player. (not hosted)**
 
+Demo : https://codepen.io/last-resort/pen/yLJjrmz
+
 **Day 4 : Email Generator (using ajax xmlhttprequest to get data from an api).**
 
-Demo : https://codepen.io/MehdiAoussiad/full/QWNxjNp
+Demo : https://temp-mail.org/fr/
 
 **Day 5 : Tabs Project with Popups images.**
 
@@ -20,15 +22,15 @@ Demo : https://codepen.io/MehdiAoussiad/full/rNerypg
 
 **Day 7 : Loading animation.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/JjXaPgO
+Demo : https://www.youtube.com/watch?v=IeS0T_30PSs&ab_channel=RedStapler
 
 **Day 8 : Simple Movie App (external Api).**
 
-Demo: https://codepen.io/MehdiAoussiad/full/rNeZKGa
+Demo: https://www.youtube.com/watch?v=fqL-xgrejZg&ab_channel=TVTIME
 
 **Day 9 : Speed Typing Game.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/NWNObyO
+Demo : https://monkeytype.com/
 
 **Day 10 : Countdown Timer.**
 
@@ -36,7 +38,7 @@ Demo : https://codepen.io/MehdiAoussiad/full/gOrooxJ
 
 **Day 11 : Calculator.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/mdPQdvv
+Demo : https://codepen.io/last-resort/pen/XWKqQEz
 
 **Day 12 : Password Generator.**
 
@@ -46,14 +48,36 @@ Demo : https://codepen.io/MehdiAoussiad/full/WNwLpLo
 
 Demo : https://codepen.io/MehdiAoussiad/full/WNwWKBJ
 
-**Day 16 : Text Highlight.**
+**Day 14 : Text Highlight.**
 
 Demo : https://codepen.io/MehdiAoussiad/full/WNxroGv
 
-**Day 17 : Color Picker.**
+**Day 15 : Tic-Tac-Toe Game.**
 
-Demo : https://simonwep.github.io/pickr/
+Demo : https://codepen.io/daajust/pen/obVROB
 
-**Day 18 : Simple Clock using moment.js.**
+**Day 16 : Snake Game.(using canvas element)**
 
-Code Demo : https://github.com/Aoussiad-Mehdi/Clock-using-moment.js
+Demo : https://codepen.io/pablo1843/pen/aWrorK
+
+**Day 17 : Pickle Rick Maze Game.**
+
+Demo : https://codepen.io/TheCodeDepository/pen/jKBaoN
+
+**Day 18 : Pong Game.**
+
+Demo : https://codepen.io/gdube/pen/JybxxZ
+
+**Day 19 : Red Rect Game.**
+
+Demo : https://codepen.io/yossigor/pen/MQqZNW
+
+**Day 20 : Brick Breacker Game.**
+
+Demo : https://codepen.io/NCruz007/pen/VjGyyK
+
+**Day 21 : Tetris Game.**
+
+Demo : https://codepen.io/skybirdtrill/pen/NNwzqN
+
+**Day 22 : Basketball Game.**
