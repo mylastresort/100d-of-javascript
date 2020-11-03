@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>todo list</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/88df246fa3.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header>ToDo App</header>
 
-    <div class="the-app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo list</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/88df246fa3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- <div class="the-app">
         <input type="text" name="newTask" id="newTask" placeholder="Add a new task">
         <i class="fas fa-plus" id="adding"></i>
+    </div> -->
+  <div class="history">
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+    <span id="notes">this is your history</span>
+  </div>
+  <div class="interface">
+    <p>What's up for today ?</p>
+    <div class="time">
+      <span id="day">day</span>
+      <span id="date">date</span>
     </div>
-    <script src="index.js"></script>
+    <div class="app">
+      <div id="current">
+        <div class="time-todo">
+          <span id="day-todo">day</span>
+          <span id="date-todo">date</span>
+        </div>
+        <div id="seperator" ></div>
+        <div class="todos" >
+        <label >
+          <input type="checkbox">
+          <span></span>
+          todo1
+        </label>
+        <label >
+          <input type="checkbox">
+          <span></span>
+          todo2
+        </label>
+        <label >
+          <input type="checkbox">
+          <span></span>
+          todo3
+        </label>
+        <label >
+          <input type="checkbox">
+          <span></span>
+          todo4
+        </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
 </body>
+
 </html>
