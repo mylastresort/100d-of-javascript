@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Music Player</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/88df246fa3.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Music Player</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://kit.fontawesome.com/88df246fa3.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
-    <audio preload="metadata" src="" id="current-song"></audio>
-    <header>Music Player</header>
-    <section class="the-app">
-        <h3 class="songName" >song's name</h3>
-        <h5 class="songAlbum" >Album</h5>
-        <div class="the-cover">
-            <img src="" alt="the art cover" id="cover" >
-        </div>
-        <div class="duration">
-            <span id="time-spent">time-spent</span>
-            <span id="songDuration" class="songDuration" >
-                <span class="minutes" >min</span><span>:</span><span class="seconds" >s</span>
-            </span>
-        </div>
-        <div id="controls">
-            <span id="next">next</span>
-            <span id="playPause">play/pause</span>
-            <span id="prev">previous</span>
-        </div>
-    </section>
-    <script src="index.js"></script>
+  <audio preload="metadata" src="" id="current-song"></audio>
+
+
+  <section class="the-app">
+    <i class="fas fa-bars"></i>
+    <i onclick="favsSongs()" class="far fa-heart"></i>
+    <h3 class="songName">song's name</h3>
+    <h5 class="songAlbum">Album</h5>
+    <h4 class="artist">Artist</h4>
+    <div class="the-cover">
+      <img src="" alt="the art cover" id="cover">
+    </div>
+    <div class="duration">
+      <span id="time-spent">00:00</span>
+      <span id="songDuration" class="songDuration"></span>
+    </div>
+    <input type="range" min=0 max="1000" name="" id="range">
+    <div id="controls">
+      <span id="prev"><i class="fas fa-backward"></i></span>
+      <span id="playPause"><i class="fas fa-play"></i></span>
+      <span id="next"><i class="fas fa-forward"></i></span>
+
+      <div class="repeat-container">
+        <span class="repeat-btns"><i class="fas fa-retweet"></i></span>
+        <span class="repeat-btns"><button class="decrease" onclick="decreaseVolume()">-</button></span>
+        <span class="repeat-btns"><i class="fa volumeControl fa-volume-up"></i></span>
+        <span class="repeat-btns"><button class="increase" onclick="increaseVolume()">+</button></span>
+        <span class="repeat-btns"><i class="fas fa-random"></i></span>
+      </div>
+
+    </div>
+  </section>
+  <script src="songs.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>

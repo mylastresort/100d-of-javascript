@@ -1,84 +1,130 @@
 *{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
 }
 
 
 body{
-    background-color: goldenrod;
+  background-color: #7e00fc;
+  background-image: linear-gradient(to right,#7e00fc,#442069);
+  
 }
 
-header{
-    text-align: center;
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: unset;
-}
 
 .the-app{
-    margin: auto;
-    width: 30%;
-    box-shadow: inset black 2px -2px 30px;
-    border: 3px solid;
-    padding: 200px;
-    height: 80vh;
-    position: relative;
+  margin: auto;
+  width: 23vw;
+  box-shadow: black 2px -2px 30px;
+  margin-top: 5%;
+  height: 70vh;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+  color: blanchedalmond;
+  border-radius: 1%;
 }
 
 #next{
-    top: 83%;
-    right: 20%;
-    margin: auto;
-    position: absolute;
-    cursor: pointer;
+  left: 70%;
+  top: 13%;
 }
 #prev{
-    top: 83%;
-    left: 20%;
-    margin: auto;
-    position: absolute;
-    cursor: pointer;
+  right: 70%;
+  top: 13%;
 }
 #playPause{
-    top: 83%;
-    margin: auto;
-    position: absolute;
-    left: 45%;
-    cursor: pointer;
+  left: 41%;
+  width: 20%;
+  top: 5%;
+  border-radius: 50%;
+  padding: 20px;
+  padding-left: 25px;
+  box-shadow: gray 2px 2px 15px;
+}
+#next,#prev,#playPause{
+  font-size: 160%;
+  cursor: pointer;
+  position: absolute;
 }
 #songDuration{
-    top: 70%;
-    right: 6%;
-    margin: auto;
-    position: absolute;
+  right: 6%;
 }
 #time-spent{
-    top: 70%;
     left: 6%;
-    margin: auto;
-    position: absolute;
+}
+#time-spent,#songDuration{
+  top: 60%;
+  position: absolute;
+}
+h4{
+  position: absolute;
+  top: 13%;
+  right: 5%;
 }
 h3{
-    top: 3%;
-    left: 5%;
-    margin: auto;
-    position: absolute;
+    top: 9%;
 }
 h5{
-    top: 8%;
-    left: 5%;
-    margin: auto;
-    position: absolute;
+    top: 14%;
 }
-
+.fa-heart{
+  font-size: 170%;
+  right: 7%;
+  top: 2%;
+  position: absolute;
+}
+.fa-bars{
+  font-size: 160%;
+  margin-top: 3%;
+  margin-left: 4%;
+}
+h3,h5{
+  left: 8%;
+  position: absolute;
+}
 img{
     position: absolute;
-    height: 50%;
-    box-shadow: 2px -0.5px 30px #7020da;
-    /* #89da20 #da2089*/
-    left: 10%;
-    top: 15%;
-    width: 80%;
+    box-shadow: 0px 0px 15px #7efc00;
+    left: 20%;
+    top: 20%;
+    width: 60%;
+    border-radius: 10%;
+}
+#range{
+  position: absolute;
+  top: 65%;
+  left: 7%;
+  width: 20vw;
+}
+#controls{
+  background-color: #7efc00 ;
+  border-radius: 45%;
+  top: 73%;
+  color: rgb(255, 255, 255);
+  left: -5%;
+  font-size: 110%;
+  position: absolute;
+  width: 25vw;
+  height: 40vh;
+}
 
+.repeat-container{
+  margin-left: 8%;
+  margin-top: 30%;
+  position: relative;
+  color: white;
+}
+
+.repeat-btns{
+  margin:6%;
+  
+}
+button{
+  border-radius: 50%;
+  width: 1.4vw;
+  outline: none;
+  border: white;
+  font-size: 100%;
+  box-shadow: gray 2px 2px 15px;
 }

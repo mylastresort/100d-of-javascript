@@ -4,78 +4,42 @@ let prev=document.getElementById('prev');
 let playPause=document.getElementById('playPause');
 let artCover=document.getElementById('cover');
 let songName=document.querySelector('.songName');
+let artist=document.querySelector('.artist')
 let songAlbum=document.querySelector('.songAlbum');
 let songDuration=document.querySelector('.songDuration');
-let songMinutes=document.querySelector('.minutes');
-let songSeconds=document.querySelector('.seconds');
+let timeSpent=document.querySelector('#time-spent')
 
-//storing the songs into a variable
-var songs = [
-  {
-    name: "Color Me Blue",
-    album: "Color Me Blue",
-    artist: "Akane",
-    cover:"songs/covers/akane - Color Me Blue.jpg"
-  },
-  {
-    name: "Toska",
-    album: "Toska",
-    artist: "Alina Yanovna",
-    cover:"songs/covers/Alina Yanovna - Toska.jpg"
-  },
-  {
-    name: "Musing",
-    album: "Musing",
-    artist: "Clara Nishimoto",
-    cover:"songs/covers/Clara Nishimoto - Musing.jpg"
-  },
-  {
-    name: "Lonely Children",
-    album: "Lonely Children",
-    artist: "Eik Octobre",
-    cover:"songs/covers/Eik Octobre - Lonely Children.jpg"
-  },
-  {
-    name: "Somewhere in Between",
-    album: "Somewhere in Between",
-    artist: "Jacob LaVallee",
-    cover:"songs/covers/Jacob LaVallee - Somewhere in Between.jpg"
-  },
-  {
-    name: "All The Little Things You Say",
-    album: "All The Little Things You Say",
-    artist: "Jef Martens",
-    cover:"songs/covers/Jef Martens - All The Little Things You Say.jpg"
-  },
-  {
-    name: "After The Silence",
-    album: "After The Silence",
-    artist: "Léon Branche",
-    cover:"songs/covers/Léon Branche - After The Silence.jpg"
-  },
-  {
-    name: "Lacrimosa",
-    album: "Lacrimosa",
-    artist: "Lucas Vendrai",
-    cover:"songs/covers/Lucas Vendrai - Lacrimosa.jpg"
-  },
-  {
-    name: "Silent Dusk",
-    album: "Silent Dusk/ Beside The Spring",
-    artist: "Olivia Belli",
-    cover:"songs/covers/Olivia Belli - Silent Dusk.jpg"
-  },
-];
+
 //defining the params
-var l=songs.length;
-var nL =l-1;
+let l=songs.length;
+let nL =l-1;
 
 //index of the current song
-var v=0;
+let v=0;
 var artCoverSrc="songs/covers/"+songs[0].artist+" - "+songs[0].name+".jpg";
 artCover.setAttribute("src",artCoverSrc)
-var sound=false;
+let sound=false;
+let volumemuted=null;
 generate(v)
+function decreaseVolume() {
+  audio.volume -= 0.25;
+}
+
+function increaseVolume() {
+  audio.volume += 0.25;
+}
+
+let volumeControl = document.querySelector(".volumeControl");
+volumeControl.addEventListener("click", function() {
+  if (audio.volume) {
+    volumemuted=audio.volume;
+    audio.volume = 0;
+    document.querySelector('.volumeControl').classList = "fas volumeControl fa-volume-mute";
+  } else {
+    audio.volume = volumemuted;
+    document.querySelector('.volumeControl').classList = "fas volumeControl fa-volume-up";
+  }
+});
 
 function nextFunction(){
     switch (v) {
@@ -113,7 +77,7 @@ function generate(x) {
   artCover.setAttribute("src",artCoverSrc)
   songName.textContent=songs[i].name;
   songAlbum.textContent=songs[i].album;
-  // calc_time()
+  artist.textContent=songs[i].artist;
 }
 
 function playSong(e) {
@@ -139,31 +103,60 @@ function pausingPlaying() {
 //the play/pause button
 playPause.onclick=function(){
   pausingPlaying()
+  checksound()
 }
 //the next button
 next.onclick=function(){
   playSong(nextFunction())
+  checksound()
 }
 //the previous button
 prev.onclick=function(){
   playSong(prevFunction())
+  checksound()
 }
 //autoplaying the next song
 audio.addEventListener('ended',()=>{
   playSong(nextFunction())
+  checksound()
 })
-
-function calc_time(){
-  var minutes =parseInt(audio.duration/60);
-  var full_minutes=(audio.duration)/60;
-  var full_seconds=full_minutes-minutes;
-  var seconds=parseInt(full_seconds*60);
-  songMinutes.textContent=minutes;
-  songSeconds.textContent=seconds;
-}
 
 
 
 audio.onloadeddata=function(){
-  calc_time()
+  let min=Math.floor(audio.duration/60);
+  let sec=Math.floor(audio.duration % 60);
+  min = min < 10 ? "0" + min : min;
+  sec = sec < 10 ? "0" + sec : sec;
+  songDuration.textContent=min+":"+sec;
+  
+}
+audio.ontimeupdate=function(){
+  let left=Math.floor(audio.currentTime);
+  let min=Math.floor(left/60);
+  let sec=left % 60;
+  min = min < 10 ? "0" + min : min;
+  sec = sec < 10 ? "0" + sec : sec;
+  timeSpent.innerHTML=`${min}:${sec}`;
+}
+
+function checksound(){
+  let icon=document.querySelector('.fa-play') || document.querySelector('.fa-pause')
+  if(!sound){
+    icon.classList='fas fa-play'
+  }
+  if(sound){
+    icon.classList='fas fa-pause'
+  }
+}
+
+function favsSongs(){
+  if(!JSON.parse(localStorage.getItem('favs')) || localStorage.getItem('favs')===""){
+    var favs=new Array()
+  }else{
+    var favs=JSON.parse(localStorage.getItem('favs'))
+  }
+  favs.push({name:songName.textContent,artist:artist.textContent})
+  console.log(favs);
+  localStorage.setItem('favs',JSON.stringify(favs))
 }
