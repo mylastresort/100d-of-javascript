@@ -2,32 +2,157 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
-}
-
-
+    color: white;
+  }
+  
+  
 body{
-    background-color: peru;
+  background-color: #000000;
 }
-.title{
-    margin: auto;
-    top: 30%;
-    position: absolute;
-    right: 50%;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+.head{
+  background-color:#1a8b9d;
+  width: 100vw;
+  position: relative;
+  height: 30vh;
+  
 }
-.generate{
-    bottom: 50%;
-    position: absolute;
-    right: 50%;
-    cursor: pointer;
+#title,#generate,#email{
+  color: black;
+
+}
+.interface{
+  margin: auto;
+  width: 40vw;
+  height: 30vh;
+  position: relative;
 }
 
-
+.fa-envelope{
+  font-size: 300%;
+  margin-top: 5%;
+  margin-left: 45%;
+}
+.far{
+  font-size: 110%;
+  background-color: #1a6e7a;
+  padding-top: 0.9vh;
+  width: 4.5vh;
+  height:4.5vh;
+  top: 65%;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+}
+.grabber{
+  border: 2px black dashed;
+  width: 40vw;
+  height: 15vh;
+  margin-top: 5%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #000000;
+  font-weight: 600;
+  font-size: 130%;
+  text-align: center;
+  padding-top: 20px;
+}
 .email{
-    bottom: 40%;
-    position: absolute;
-    right: 50%;
-    cursor: pointer;
+  margin-top: 2%;
+  margin-left: 2%;
 }
+input{
+  width: 16vw;
+  margin-right: 20px;
+  text-align: center;
+  font-size: 80%;
+  height: 4vh;
+  top: 10%;
+  outline: none;
+  border: wheat;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color:#0f6875 ;
+  border-radius: 2%;
+}
+#copied{
+  font-size: 55%; 
+  top: 84%; 
+  position: absolute;
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+.controls{
+  width: 60vw;
+  margin-top: 5%;
+  margin-left: 20%;
+  height: 50vh;
+  border-radius: 1.3%;
+  background-color: #b6aeae;
+  position: relative;
+}
+
+.settings,.messages{
+  height: 100%;
+  position: absolute;
+}
+.settings{
+  width: 10%;
+  border-radius:2.3% ;
+  background-color:#9c9898 ;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  
+}
+.messages{
+  width: 90%;
+  left: 10%;
+}
+
+
+#settings{
+  color:  #b2d430;
+  margin-bottom: 60%;
+  margin-top: 5%;
+  font-size: 200%;
+  margin-left: 30%;
+}
+#settings:hover{
+  color: #b3d430b9;
+  cursor: pointer;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  padding: 10px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #a3a3a3;
+}
+
+#items{
+  color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
