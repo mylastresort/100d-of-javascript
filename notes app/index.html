@@ -13,21 +13,30 @@
 
 <body>
     <header>Notes App</header>
-    <form action="app" id="my">
+    <form action="app" >
         <div class="typeArea">
             <textarea name="message" id="typeArea" cols="30" rows="10" placeholder="Take a note..."></textarea>
         </div>
         <div class="controls">
             <input id="reset" type="reset">
             <input id="color" type="color">
+            font size :
+            <select id="select">
+              <option value="20px">20px</option>
+              <option value="25px">25px</option>
+              <option value="30px">30px</option>
+              <option value="35px">35px</option>
+              <option value="40px">40px</option>
+            </select>
         </div>
     </form>
 
-    <button id="add">Add</button>
+    <button onclick="save()" id="add">Add</button>
 
-    <div class="section">
-        
-    </div>
+
+    <div class="notes-section"></div>
+
+
 
     <script src="index.js"></script>
 </body>
