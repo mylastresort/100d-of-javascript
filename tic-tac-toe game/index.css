@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #482ff7;
+}
+
+.app{
+  margin: auto;
+  position: relative;
+  width: 33vw;
+  height: 70vh;
+  font-size: 70%;
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(5,1fr);
+  box-shadow: #211666 0px 0px 100px 10px;
+  border-radius: 3px;
+  /* transform: rotate(50deg); */
+  border: 3px white solid;
+}
+
+.case{
+  border: 0.5px white solid;
+  background-color: #46c3db;
+  position: relative;
+}
+.case:hover{
+  cursor: pointer;
+  background-color: #41b6ce;
+}
+img{
+  margin: auto;
+  left: 25%;
+  position: absolute;
+  top: 25%;
+}
+
+
+
+/* theme colors: #482ff7  #2d6cdf #46c3db #f3f169*/
