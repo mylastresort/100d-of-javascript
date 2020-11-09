@@ -19,7 +19,10 @@ let level={
   },
   easy:{
     grids:5,
-    required:4
+    required:3
+  },
+  grab:function(){
+    return this.easy.required
   }
 }
 
@@ -71,8 +74,10 @@ function genrateMemory(grids,required){
 genrateMemory(level.easy.grids, level.easy.required)
 
 
-
 function play(element){
+
+  let required=level.grab()
+
   if(element.children.length>0){return false};
   let index=Math.floor(Math.random() * 3 )
   let player=null;
@@ -121,24 +126,25 @@ function play(element){
     key=0
   }
   //pushing the input starting from line 'key' on inputs
-  //////for reversed lines (leftside)
   for(let d=key;d<nLine+1;d++){
     if(inputs.colomuns.get(colomun).get(d)!==undefined){
       inputs.colomuns.get(colomun).get(d).push(player)
     }
   }
+  //////for reversed lines (leftside)
   if(Rel!=='no'){
     key=nRel-required+1
     if(key<0){
       key=0
     }
-  //pushing the input starting from line 'key' on inputs
-  }
-  for (let d=key;d<nRel+1;d++){
-    if(inputs.reverseL.get(lineRel).get(d)!==undefined){
-      inputs.reverseL.get(lineRel).get(d).push(player)
+    //pushing the input starting from line 'key' on inputs
+    for (let d=key;d<nRel+1;d++){
+      if(inputs.reverseL.get(lineRel).get(d)!==undefined){
+        inputs.reverseL.get(lineRel).get(d).push(player)
+      }
     }
   }
+
   ///////for reversed lines (rightside)
   if(Rer!=='no'){
     key=nRer-required+1
@@ -153,18 +159,20 @@ function play(element){
     }
   }
 
-  check()
+  setTimeout(() => {
+    check()
+  }, 10);
 }
 
 
 function check(){
   inputs.colomuns.forEach((e,line)=>{
     e.forEach((e,group)=>{
-      if(e.length===4){
+      if(e.length===level.grab()){
         if(e.every(e=>e=='x')){
           alert(`the X player won the game with line ${group} in ${line}`)
         }
-        if(e.length===4){
+        if(e.length===level.grab()){
           if(e.every(e=>e=='o')){
           alert(`the O player won the game with line ${group} in ${line}`)
           }
@@ -174,11 +182,11 @@ function check(){
   })
   inputs.lines.forEach((e,line)=>{
     e.forEach((e,group)=>{
-      if(e.length===4){
+      if(e.length===level.grab()){
         if(e.every(e=>e=='x')){
           alert(`the X player won the game with line ${group} in ${line}`)
         }
-        if(e.length===4){
+        if(e.length===level.grab()){
           if(e.every(e=>e=='o')){
           alert(`the O player won the game with line ${group} in ${line}`)
           }
@@ -188,11 +196,11 @@ function check(){
   })
   inputs.reverseL.forEach((e,line)=>{
     e.forEach((e,group)=>{
-      if(e.length===4){
+      if(e.length===level.grab()){
         if(e.every(e=>e=='x')){
           alert(`the X player won the game with line ${group} in ${line}`)
         }
-        if(e.length===4){
+        if(e.length===level.grab()){
           if(e.every(e=>e=='o')){
           alert(`the O player won the game with line ${group} in ${line}`)
           }
@@ -202,11 +210,11 @@ function check(){
   })
   inputs.reverseR.forEach((e,line)=>{
     e.forEach((e,group)=>{
-      if(e.length===4){
+      if(e.length===level.grab()){
         if(e.every(e=>e=='x')){
           alert(`the X player won the game with line ${group} in ${line}`)
         }
-        if(e.length===4){
+        if(e.length===level.grab()){
           if(e.every(e=>e=='o')){
           alert(`the O player won the game with line ${group} in ${line}`)
           }
