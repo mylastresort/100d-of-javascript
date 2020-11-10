@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  background-color: #212121;
+}
+
+
+
+canvas{
+  display: block;
+  margin: 0 auto;
+  margin-top: 9%;
+  box-shadow: inset 0px 0px 10px 5px #1f1e1e;
+  border:10px solid #1f1e1e;
+  border-radius: 20px;
+  background-color: #323232;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* theme>>#14ffec>>#0d7377>>#323232>>#212121 */
