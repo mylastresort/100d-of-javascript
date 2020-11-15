@@ -17,8 +17,8 @@ let level={
     required:3
   },
   easy:{
-    grids:3,
-    required:3
+    grids:9,
+    required:5
   },
   grab:function(){
     return this.easy.required
@@ -69,8 +69,8 @@ function generateMemory(grids,required){
 }
 
 
-// generateMemory(level.easy.grids, level.easy.required)
-
+generateMemory(level.easy.grids, level.easy.required)
+generate(level.easy.grids, level.easy.required)
 
 function play(element){
 
