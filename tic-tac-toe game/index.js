@@ -258,7 +258,7 @@ function generate(gridsCases,requiredCases){
     let result=e.getAttribute('case-key');
     let index=result.slice(4)[0]
     let rr=reversed.get(`L${index}`)[counter]
-    (rr==='') ? result+='-no': result+=`-Rr${rr}`;
+    rr==='' ? result+='-no': result+=`-Rr${rr}`;
     e.setAttribute('case-key',result)
     counter=(gridsCases-1===counter)? 0 : counter+1;
   })
