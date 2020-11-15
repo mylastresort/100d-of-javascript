@@ -10,78 +10,76 @@ const inputs={
   reverseL:new Map(),
   reverseR:new Map()
 }
-
-
+//the grids must not be even otherwise some reversed lines will be missed while generating
 let level={
   noob:{
     grids:3,
     required:3
   },
   easy:{
-    grids:5,
+    grids:3,
     required:3
   },
   grab:function(){
     return this.easy.required
   }
 }
-
 let turn=0;
 
-function genrateMemory(grids,required){
-  const n=grids-required;
-  //n: to maitain every line/column possible if the user changed the number required cases to win
+function generateMemory(grids,required){
+  const diffrence=grids-required;
+  //diffrence: to maitain every line/column possible if the user changed the number required cases to win
   for(let i=0;i<grids;i++){
     inputs.lines.set(`L${i}`,new Map())
     inputs.colomuns.set(`C${i}`,new Map())
   }
-  for(let p=0;p<n+1;p++){
-    for(let i=0;i<grids;i++){
-      inputs.lines.get(`L${i}`).set(p,[])
-      inputs.colomuns.get(`C${i}`).set(p,[])
+  for(let i=0;i<diffrence+1;i++){
+    for(let p=0;p<grids;p++){
+      inputs.lines.get(`L${p}`).set(i,[])
+      inputs.colomuns.get(`C${p}`).set(i,[])
     }
   }
   inputs.reverseL.set(`Rl0`,new Map())
   inputs.reverseR.set(`Rr0`,new Map())
-  for (let z=0;z<(grids-required)*2;z++){
-    inputs.reverseL.set(`Rl${z+1}`,new Map())
-    inputs.reverseR.set(`Rr${z+1}`,new Map())
+  for (let i=0;i<(grids-required)*2;i++){
+    inputs.reverseL.set(`Rl${i+1}`,new Map())
+    inputs.reverseR.set(`Rr${i+1}`,new Map())
   }
-  for (let f=0;f<grids-required+1;f++){
-    inputs.reverseL.get(`Rl0`).set(f,[])
-    inputs.reverseR.get(`Rr0`).set(f,[])
+  for (let i=0;i<grids-required+1;i++){
+    inputs.reverseL.get(`Rl0`).set(i,[])
+    inputs.reverseR.get(`Rr0`).set(i,[])
   }
   let l=grids-required;
   let equation=grids-required
-  for(let j=0;j<l;j++){
-    for(let o=0;o<equation;o++){
-      inputs.reverseL.get(`Rl${j+1}`).set(o,[])
-      inputs.reverseR.get(`Rr${j+1}`).set(o,[])
+  for(let i=0;i<l;i++){
+    for(let p=0;p<equation;p++){
+      inputs.reverseL.get(`Rl${i+1}`).set(p,[])
+      inputs.reverseR.get(`Rr${i+1}`).set(p,[])
     }
     equation--;
   }
   equation=grids-required
-  for(let g=l;g<l*2;g++){
-    for(let o=0;o<equation;o++){
-      inputs.reverseL.get(`Rl${g+1}`).set(o,[])
-      inputs.reverseR.get(`Rr${g+1}`).set(o,[])
+  for(let i=l;i<l*2;i++){
+    for(let p=0;p<equation;p++){
+      inputs.reverseL.get(`Rl${i+1}`).set(p,[])
+      inputs.reverseR.get(`Rr${i+1}`).set(p,[])
     }
     equation--;
   }
 }
 
 
-genrateMemory(level.easy.grids, level.easy.required)
+// generateMemory(level.easy.grids, level.easy.required)
 
 
 function play(element){
 
-  let required=level.grab()
+  const required=level.grab()
 
   if(element.children.length>0){return false};
-  let index=Math.floor(Math.random() * 3 )
+  const index=Math.floor(Math.random() * 3 )
   let player=null;
-  let img=document.createElement('img')
+  const img=document.createElement('img')
   switch (turn) {
     case 0:
       player='o'
@@ -94,22 +92,22 @@ function play(element){
       img.setAttribute('src',Object.values(xo)[1][index])
       break;
   }
-  const id=element.id
+  const id=element.getAttribute('case-key')
   element.appendChild(img)
-  let colomun=id.split('-')[0]
-  let line=id.split('-')[1]
-  let Rel=id.split('-')[2]
-  let Rer=id.split('-')[3]
-  let nColomun=parseInt(id.split('-')[0][1])
-  let nLine=parseInt(id.split('-')[1][1])
-  let nRel=parseInt(id.split('-')[2][4])
-  let nRer=parseInt(id.split('-')[3][4])
-  let lineRel=Rel.slice(0,3)
-  let lineRer=Rer.slice(0,3)
+  const colomun=id.split('-')[0]
+  const line=id.split('-')[1]
+  const Rel=id.split('-')[2]
+  const Rer=id.split('-')[3]
+  const nColomun=parseInt(colomun[1])
+  const nLine=parseInt(line[1])
+  const nRel=parseInt(Rel[4])
+  const nRer=parseInt(Rer[4])
+  const lineRel=Rel.slice(0,3)
+  const lineRer=Rer.slice(0,3)
   ///assuming that this input is the last element on a line (line:lines i made on inputs object)
   //get the start case possible on inputs objects (in case for lines:we grab it from the colomun) and it must not be negative 
-  //for Lines
   let key=nColomun-required+1
+  //for Lines
   if(key<0){
     key=0
   }
@@ -144,7 +142,6 @@ function play(element){
       }
     }
   }
-
   ///////for reversed lines (rightside)
   if(Rer!=='no'){
     key=nRer-required+1
@@ -152,18 +149,16 @@ function play(element){
       key=0
     }
     //pushing the input starting from line 'key' on inputs
-    for(let d=key;d<nRer;d++){
+    for(let d=key;d<nRer+1;d++){
       if(inputs.reverseR.get(lineRer).get(d)!==undefined){
         inputs.reverseR.get(lineRer).get(d).push(player)
       }
     }
   }
-
   setTimeout(() => {
     check()
-  }, 10);
+  }, 50);
 }
-
 
 function check(){
   inputs.colomuns.forEach((e,line)=>{
@@ -223,6 +218,56 @@ function check(){
     })
   })
 }
+
+
+function generate(gridsCases,requiredCases){
+  let deadline=0;
+  let reversed=new Map()
+  for (let i=0;i<gridsCases;i++) {reversed.set(`L${i}`,new Array())}
+  const diffrence=gridsCases-requiredCases+1;
+  while(deadline<Math.pow(gridsCases,2)){
+    let key=new Array();       //lines,colomuns,left reversed lines
+    let c=`C${deadline%gridsCases}`;
+    let l=`L${Math.floor(deadline/gridsCases)}`;
+    key.push(c)
+    key.push(l)
+    c=parseInt(c.slice(1))
+    l=parseInt(l.slice(1))
+    if(c>=l &&  c-l<diffrence){
+      rl=`Rl${c-l}'${l}`;
+    }else if(c<l  &&  l-c<diffrence){
+      rl=`Rl${l-c+diffrence-1}'${c}`;
+    }else{
+      rl='no'
+    }
+    reversed.get(`L${l}`).push(rl.slice(2))
+    key.push(rl)
+    let result=key.join('-');
+    let element=document.createElement('span')
+    element.setAttribute('case-key',result)
+    element.classList='case'
+    element.setAttribute('onclick','play(this)')
+    document.body.querySelector('.app').appendChild(element)
+    deadline++;
+  }
+  ///for rr im gonna add the reversed arrays on the rr Map
+  let b=document.querySelectorAll('.case')
+  reversed.forEach(e=>e.reverse())
+  let counter=0;
+  b.forEach(e=>{
+    let result=e.getAttribute('case-key');
+    let index=result.slice(4)[0]
+    let rr=reversed.get(`L${index}`)[counter]
+    (rr==='') ? result+='-no': result+=`-Rr${rr}`;
+    e.setAttribute('case-key',result)
+    counter=(gridsCases-1===counter)? 0 : counter+1;
+  })
+  document.getElementById('app').style.gridTemplateColumns=`repeat(${gridsCases},1fr)`
+  document.getElementById('app').style.gridTemplateRows=`repeat(${gridsCases},1fr)`
+  // b.forEach(e=>e.textContent=e.getAttribute('case-key'))
+}
+
+
 
 // ////to make a demo
 // let i=0

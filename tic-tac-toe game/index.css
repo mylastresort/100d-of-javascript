@@ -28,16 +28,18 @@ body{
   border: 0.5px white solid;
   background-color: #46c3db;
   position: relative;
+  
 }
 .case:hover{
   cursor: pointer;
   background-color: #41b6ce;
 }
 img{
-  margin: auto;
-  left: 25%;
   position: absolute;
-  top: 25%;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%,-50%);
 }
 
 
