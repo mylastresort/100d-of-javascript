@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+/* for the background animation
+body{
+  background: linear-gradient(-46deg,#243d44,#167a8b,#2dea8f,#24b273);
+  animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
+  height: 100vh;
+  width: 100vw;
+}
+@keyframes gradient{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+} */
+
+
+body{
+  background-color: rgba(126, 252, 0, 0.726);
+}
+img{
+  display: none;
+}
+
+/* theme color:#5d13e7, */
