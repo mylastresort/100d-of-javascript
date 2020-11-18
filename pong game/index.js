@@ -26,10 +26,10 @@ let ball={
     context.strokeStyle='#fee9d7'
     context.stroke()
 
-    if(ball.x===players.one.x+8 && players.one.y-10<=ball.y && ball.y<=players.one.y+40+10 ){
-      ball.sx*=-1}
-    if(ball.x+10>canvas.width){ball.sx*=-1}
-    if(ball.y +10>canvas.height || ball.y-10<0) {ball.sy*=-1}
+    if(this.x===players.one.x+8 && players.one.y-10<=this.y && this.y<=players.one.y+40+10 ){
+      this.sx*=-1}
+    if(this.x+10>canvas.width){this.sx*=-1}
+    if(this.y +10>canvas.height || this.y-10<0) {this.sy*=-1}
 
     requestAnimationFrame(ball.move.bind(this))
   },
