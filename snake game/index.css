@@ -21,7 +21,13 @@ canvas{
   background-color: #323232;
 }
 
-
+#score{
+  position: absolute;
+  color: whitesmoke;
+  left: 27%;
+  top: 20%;
+  font-weight: bold;
+}
 
 
 

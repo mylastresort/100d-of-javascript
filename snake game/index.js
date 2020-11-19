@@ -1,5 +1,6 @@
 let canvas=document.getElementById('canvas')
 let context=canvas.getContext('2d')
+let counter=0;
 canvas.width=700;
 canvas.height=400;
 let snake={
@@ -10,8 +11,9 @@ let snake={
   direction:'right',
   size:[],
   speed:100,      //..milliseconds
-  xb:()=>{return Math.floor(Math.random()*((canvas.width-20)/15))*15},
-  yb:()=>{return Math.floor(Math.random()*((canvas.height-20)/15))*15}
+  randomX:()=>{return Math.floor(Math.random()*((canvas.width-20)/15))*15},
+  randomY:()=>{return Math.floor(Math.random()*((canvas.height-20)/15))*15},
+  score:0
 }
 let food={
   x:225,
@@ -74,6 +76,7 @@ function move(){
   context.fillRect(snake.x,snake.y,snake.width,snake.height);
 
   if(snake.x===food.x && food.y===snake.y){
+    document.querySelector('#score').textContent=`Score : ${snake.score+=1}`
     makeFood();
   }else{
     if(snake.size.length>3 ){
@@ -87,6 +90,7 @@ function move(){
   }
 }
 
+
 function check(){
   if(snake.x>canvas.width-20
   || snake.y>canvas.height-20
@@ -96,14 +100,11 @@ function check(){
   }
 }
 function makeFood(){
-  food.x=snake.xb()
-  food.y=snake.yb()
-  while(snake.size.forEach(e=>{return e[0]===food.x}) 
-  && snake.size.forEach(e=>{return e[1]===food.y})){
-    food.x=snake.xb()
-    food.y=snake.yb()
-    snake.size.push([snake.x,snake.y])
-  }
+  do {
+    food.x=snake.randomX()
+    food.y=snake.randomY()
+  } while (snake.size.some(e=>{return (food.x===e[0] && food.y===e[1])}));
+  snake.size.push([snake.x,snake.y])
   context.beginPath();
   context.fillStyle='#0d7377'
   context.fillRect(food.x,food.y,9,9)
@@ -118,5 +119,6 @@ function restart(){
   snake.direction='right'
   snake.size=new Array();
   context.clearRect(0,0,canvas.width,canvas.height)
+  snake.score=0;
   makeFood()
 }
