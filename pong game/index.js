@@ -3,8 +3,6 @@ canvas.width=501;
 canvas.height=501;
 canvas.style.backgroundColor='#e2434b';
 canvas.style.borderRadius='15px'
-canvas.style.display='block'
-canvas.style.margin='0 auto'
 const context=canvas.getContext('2d')
 document.body.appendChild(canvas)
 context.fillStyle='#e2434b'
@@ -26,11 +24,22 @@ let ball={
     context.strokeStyle='#fee9d7'
     context.stroke()
 
-    if(this.x===players.one.x+8 && players.one.y-10<=this.y && this.y<=players.one.y+40+10 ){
-      this.sx*=-1}
-    if(this.x+10>canvas.width){this.sx*=-1}
-    if(this.y +10>canvas.height || this.y-10<0) {this.sy*=-1}
 
+    if(this.x>canvas.width || this.x<0){
+      if(this.x<0){players.bot.score+=1}
+      if(this.x>canvas.width){players.one.score+=1}
+      players.restart()
+    }
+
+    if((players.one.x<=this.x && this.x<=players.one.x+8 && players.one.y-5<=this.y && this.y<=players.one.y+60+5)
+    ||
+    (players.bot.x-8<=this.x && this.x<=players.bot.x && players.bot.y-5<=this.y && this.y<=players.bot.y+60+5)){
+      this.sx*=-1}
+    if(this.y +10>canvas.height || this.y-10<0) {this.sy*=-1}
+    players.one.move()
+    players.bot.move()
+    document.querySelector('.bot-score').textContent=`Bot Score : ${players.bot.score}`
+    document.querySelector('.player-score').textContent=`Player Score : ${players.one.score}`
     requestAnimationFrame(ball.move.bind(this))
   },
   x:252,
@@ -41,21 +50,50 @@ let ball={
 
 let players={
   one:{
+    score:0,
     x:22,
     y:225,
-    move:function(direction){
-      context.clearRect(this.x,this.y,8,40)
-      if(direction==='up'){this.y-=40}
-      if(direction==='down'){this.y+=40}
+    move(direction){
+      context.clearRect(this.x,this.y,8,60)
+      if(direction==='up'){this.y-=30}
+      if(direction==='down'){this.y+=30}
       if(this.y<0){this.y=0}
-      if(this.y+40>canvas.height){this.y=canvas.height-40}
+      if(this.y+60>canvas.height){this.y=canvas.height-60}
       context.fillStyle='#fee9d7'
-      context.fillRect(this.x,this.y,8,40)
+      context.fillRect(this.x,this.y,8,60)
     }
+  },
+  bot:{
+    score:0,
+    x:canvas.width-(22+8),
+    y:225,
+    move(){
+      context.clearRect(this.x,this.y,8,60)
+      if((this.y+30<=ball.y && ball.y<=this.y+60)
+      ||
+      (this.y-30<=ball.y && ball.y<=this.y)){
+        let movement=Math.sign(ball.y-this.y)
+        this.y+=(movement*30);
+      }
+      if(this.y<0){this.y=0}
+      if(this.y+60>canvas.height){this.y=canvas.height-60}
+      context.fillStyle='#fee9d7'
+      context.fillRect(this.x,this.y,8,60)
+    }
+  },
+  restart(){
+    context.clearRect(0,0,canvas.width,canvas.height)
+    players.one.x=22;
+    players.bot.x=canvas.width-(22+8);
+    players.one.y=225;
+    players.bot.y=225;
+    context.fillStyle='#fee9d7'
+    context.fillRect(players.one.x,players.one.y,8,60)
+    context.fillRect(players.bot.x,players.bot.y,8,60)
+    ball.x=252;
+    ball.y=252;
   }
 }
-context.fillStyle='#fee9d7'
-context.fillRect(players.one.x,players.one.y,8,40)
 
 document.onkeydown=(e)=>{
   switch (e.code) {

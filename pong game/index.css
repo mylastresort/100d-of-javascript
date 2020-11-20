@@ -1,7 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: #fee9d7;
+}
+
 body{
   background-color: #34222e;
 }
-
-
+.score{
+  display: flex;
+  font-size: 140%;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 35%;
+  padding-bottom: 3%;
+  margin: auto;
+  padding-top: 6%;
+}
+.player-score{
+  padding-right: 20%;
+}
+canvas{
+  margin-left: 5%;
+}
 
 /* other colors to use: #f9bf8f #fee9d7 */
