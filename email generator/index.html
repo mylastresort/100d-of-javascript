@@ -9,39 +9,44 @@
 </head>
 <body>
 
-  <div class="head">
-    <div class="interface" >
-      <i class="fas fa-envelope"></i>
-      <section class="grabber" >
-        <div>Grab or create your email here</div>
-        <div class="email" >
-          <input placeholder="sample@email.com" type="text" name="email" id="email">
-          <i onclick="copy()" class="far fa-clipboard"></i>
-          <span id="copied">Copied !</span>
-        </div>
-      </section>
-    </div>
-    <span id="instructions">the API service takes 10s to send back the email message</span>
+
+  <div class="interface" >
+    <i class="fas fa-envelope"></i>
+    <section class="grabber" >
+      <div>Grab or create your email here</div>
+      <div class="email" >
+        <input placeholder="sample@email.com" type="text" name="email" id="email">
+        <i onclick="copy()" class="far fa-clipboard">
+          <span id="copied">Copied!</span></i>
+      </div>
+    </section>
   </div>
 
+  <span id="instructions">
+    <li>The API service takes 10s to send back the email messages</li>
+    <li>The API service do not handle the download attachments somtimes</li>
+  </span>
 
-  <div class="controls">
+
+  <div class="messages-section">
     <span class="settings">
       <i id="settings" class="fas fa-plus"></i>
       <i id="settings" onclick="ajax(service.generate(),'generate',false)" class="fas fa-random"></i></li>
       <i id="settings" onclick="ajax(service.mailbox(),'checkAll',true)" class="fas fa-sync-alt"></i></li>
       <i id="settings" onclick="ajax(service.generate(),'generate',false)" class="fas fa-trash"></i></li>
     </span>
-    <span class="messages">
-      <table class="table" >
-        <tr>
-          <th id="items" >From</th>
-          <th id="items" >Subject</th>
-          <th id="items" >Time</th>
-          <th id="items" >Expand</th>
-        </tr>
-      </table>
-    </span>
+    <div class="controls">
+      <span class="messages">
+        <table class="table" >
+          <tr>
+            <th id="items" >From</th>
+            <th id="items" >Subject</th>
+            <th id="items" >Time</th>
+            <th id="items" >Expand</th>
+          </tr>
+        </table>
+      </span>
+    </div>
   </div>
 
 
@@ -58,7 +63,7 @@
       </div>
     </div>
   </div>
-  
+
   <script src="index.js"></script>
 </body>
 </html>

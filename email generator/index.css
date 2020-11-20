@@ -1,153 +1,121 @@
 *{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-    color: white;
-  }
-  
-  
+  margin: 0;
+  padding:0;
+  color: white;
+}
 body{
   background-color: #000000;
 }
-.head{
-  background-color:#1a8b9d;
-  width: 100vw;
-  position: relative;
-  height: 30vh;
-  
-}
 #title,#generate,#email{
   color: black;
-
 }
 .interface{
   margin: auto;
-  width: 40vw;
-  height: 30vh;
+  background-color: #1a8b9d;
   position: relative;
+  padding-bottom: 3%;
 }
-
 .fa-envelope{
   font-size: 300%;
-  margin-top: 5%;
-  margin-left: 45%;
+  margin-top: 3%;
+  margin-left: 47%;
+  margin-bottom: 3%;
 }
-.far{
+.fa-clipboard{
   font-size: 110%;
   background-color: #1a6e7a;
-  padding-top: 0.9vh;
-  width: 4.5vh;
-  height:4.5vh;
-  top: 65%;
+  padding: 2%;
   cursor: pointer;
-  position: absolute;
-  border-radius: 50%;
+  border-radius: 50px;
+  position: relative;
 }
 .grabber{
+  margin: auto;
   border: 2px black dashed;
   width: 40vw;
-  height: 15vh;
-  margin-top: 5%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #000000;
   font-weight: 600;
   font-size: 130%;
   text-align: center;
-  padding-top: 20px;
-}
-.email{
-  margin-top: 2%;
-  margin-left: 2%;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  position: relative;
 }
 input{
-  width: 16vw;
+  margin-bottom: 3%;
   margin-right: 20px;
   text-align: center;
+  width: 70%;
   font-size: 80%;
-  height: 4vh;
-  top: 10%;
-  outline: none;
-  border: wheat;
+  height: 30px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: wheat;
   background-color:#0f6875 ;
-  border-radius: 2%;
+  outline: none;
+  border-radius: 10px;
 }
 #copied{
-  font-size: 55%; 
-  top: 84%; 
+  font-size: 50%;
+  bottom: -30%;
+  left: 4%;
   position: absolute;
   transition: opacity 1s;
   opacity: 0;
 }
-
-.controls{
-  width: 60vw;
-  margin-top: 5%;
+.messages-section{
+  width: fit-content;
+  background-color:#9c9898;
+  display: flex;
+  transition: margin-left 0.5s;
+  margin: auto;
   margin-left: 20%;
-  transition: margin-left 1s;
-  height: 50vh;
-  border-radius: 1.3%;
-  background-color: #b6aeae;
+  margin-top: 3%;
+  border-radius: 10px;
   position: relative;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-.settings,.messages{
-  height: 100%;
-  position: absolute;
+  height: 400px;
+  width: 60vw;
 }
 .settings{
-  width: 10%;
-  border-radius:2.3% ;
-  background-color:#9c9898 ;
-  padding-top: 5%;
+  margin: auto;
+}
+.controls{
+  width: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #b6aeae;
+}
+#settings{
   display: flex;
   flex-direction: column;
-  
-}
-.messages{
-  width: 90%;
-  left: 10%;
-}
-
-
-#settings{
-  color:  #b2d430;
-  margin-bottom: 60%;
-  margin-top: 5%;
   font-size: 200%;
-  margin-left: 30%;
+  color:  #b2d430;
+  margin-bottom: 150%;
 }
 #settings:hover{
   color: #b3d430b9;
   cursor: pointer;
 }
-
-
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-
 td, th {
   padding: 10px;
   text-align: center;
 }
-
 tr:nth-child(even) {
   background-color: #a3a3a3;
 }
-
 #items{
   color: #000000;
 }
-#instructions{
+#instructions li{
+  list-style-type: none;
   color: #9c9898;
   font-size: 70%;
 }
-
 .expand{
   border-radius: 7px;
   width:10vw;
@@ -156,13 +124,14 @@ tr:nth-child(even) {
   right: 1%;
   height: 45vh;
   width: 0vw;
-  top: 40%;
+  top: 45%;
   transition: width 0.75s;
   background-color: #b6aeae;
   overflow:scroll;
   overflow-x: hidden;
 }
 .infos{
+  padding: 10px;
   position: relative;
 }
 .seperator{
@@ -172,23 +141,18 @@ tr:nth-child(even) {
   height: 0.1vh;
   margin: auto;
 }
-
 ::-webkit-scrollbar {
   width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background:#b6aeae; 
+  background:#b6aeae;
 }
- 
 ::-webkit-scrollbar-thumb {
-  background: rgba(238, 130, 238, 0.527); 
+  background: #9c9898;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #818080; 
+  background: #838383;
 }
-
-
 .attachments,.text{
   position: relative;
   display: flex;
@@ -201,7 +165,6 @@ tr:nth-child(even) {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
 }
-
 p{
   color: #131313;
   text-align: center;
