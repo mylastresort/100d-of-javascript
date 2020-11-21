@@ -7,7 +7,39 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div class="app" id="app"></div>
+  <div id="init">
+    <div class="choise" id="choise">
+      <p id="text">You are</p>
+      <section id="choisesSection1">
+        <button id="choises">X</button>
+        <p id="choises">Or</p>
+        <button id="choises">O</button>
+      </section>
+    </div>
+    <div class="chosentemplate" id="chosentemplate">
+      <p id="text">You want</p>
+      <section id="choisesSection2">
+        <select class="grids" id="Gridvalues">
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="7">7</option>
+          <option value="9">9</option>
+        </select>
+        <p id="choises">Grids</p>
+        <select class="required" id="Requiredvalues">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <p id="choises">Cases to win</p>
+        <button id="choises">Start!</button>
+      </section>
+    </div>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
