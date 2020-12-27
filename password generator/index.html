@@ -15,9 +15,21 @@
 
   <div class="seperator"></div>
   <div class="display">
-    <span class="password" >Choose the length of your password then click to generate...</span>
+    <textarea placeholder="Choose the length of your password then click to generate..." class="password"></textarea>
     <span class="btn" onclick="generate()" >Generate</span>
+
   </div>
+
+  <form class="options">
+    <input type="checkbox" id="Upper_abcs" value="Upper_abcs">
+    <label for="Upper_abcs">Upper abcs</label><br>
+    <input type="checkbox" id="Lower_abcs" value="Lower_abcs">
+    <label for="Lower_abcs">Lower abcs</label><br>
+    <input type="checkbox" id="Symbols" value="Symbols">
+    <label for="Symbols">Symbols</label><br>
+    <input type="checkbox" id="Numbers" value="Numbers">
+    <label for="Numbers">Numbers</label>
+  </form>
   <select class="level">
     <option value="4">4</option>
     <option value="8">8</option>

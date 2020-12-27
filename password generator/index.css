@@ -4,24 +4,18 @@
   box-sizing: border-box;
   background-color: #008080;
 }
-
-
-
 h2{
   font-family: 'Do Hyeon', sans-serif;
   text-align: center;
   font-size: 400%;
   margin-top: 10%;
 }
-
-
 .seperator{
   width: 30%;
   margin-top: 30%;
   margin: auto;
   border: 1px solid black;
 }
-
 .display{
   position: relative;
   margin-top: 5%;
@@ -38,8 +32,13 @@ h2{
   text-align: center;
   font-size: 100%;
   padding: 10%;
+  resize: none;
   font-family: 'Times New Roman', Times, serif;
-
+}
+.password::placeholder{
+  font-size: 100%;
+  color: black;
+  opacity: 0.3;
 }
 .btn{
   box-shadow: black 2px 2px 2px;
@@ -54,7 +53,6 @@ h2{
   font-size: 100%;
   padding-top: 5%;
 }
-
 .level{
   outline: none;
   left: 30%;
@@ -62,4 +60,9 @@ h2{
   display: inline;
   position: absolute;
   top:43%;
+}
+
+.options{
+  position: absolute;
+  right:50%;
 }

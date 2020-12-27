@@ -1,85 +1,42 @@
-let symbols=[
-  '?',
-  '.',
-  ',',
-  '>',
-  '<',
-  '"',
-  ';',
-  ':',
-  '/',
-  '|',
-  ']',
-  '[',
-  '}',
-  '{',
-  '=',
-  '+',
-  '_',
-  '-',
-  ')',
-  '(',
-  '*',
-  '&',
-  '^',
-  '°',
-  '%',
-  '§',
-  '¥',
-  '¢',
-  '$',
-  '€',
-  '£',
-  '€',
-  '#',
-  '@',
-  '!',
-  '`',
-  '~',
-]
-let numbers=[
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-]
-let abcs='abcdefghijklmnopqrstuvwxyz';
-let abcsA=abcs.toLocaleUpperCase();
-let show=document.querySelector('.password')
-let pass=new Array();
-function generate(){
-  let level=document.querySelector('.level').options[document.querySelector('.level').selectedIndex].textContent;
-  pass=new Array();
-  var charachters={
-    symbols,
-    numbers,
-    abcs,
-    abcsA
+const box={
+  symbols:['?','.',',','>','<','"',';',':','/','|',']','[','}','{',
+  '=','+','_','-',')','(','*','&','^','°','%','§','¥','¢','$','€','£',
+  '€','#','@','!','`','~',],
+  numbers:['0','1','2','3','4','5','6','7','8','9'],
+  abcs:'abcdefghijklmnopqrstuvwxyz',
+}
+
+
+function generate() {
+  let level = document.querySelector('.level').options[document.querySelector('.level').selectedIndex].textContent
+  let pass = new Array()
+  function check(){
+    let pack=new Array()
+    if (document.getElementById('Upper_abcs').checked) pack.push(box.abcs.toUpperCase())
+    if(document.getElementById('Lower_abcs').checked) pack.push(box.abcs)
+    if(document.getElementById('Symbols').checked) pack.push(box.symbols)
+    if(document.getElementById('Numbers')) pack.push(box.numbers)
+    return pack
   }
-  for(var i=0;i<Object.keys(charachters).length;i++){
-    for (var n=level/Object.keys(charachters).length;n>0;n--){
-      var exist=false;
-      while(!exist){
-        var index=Math.floor(Math.random()* 37)
-        var exist=Object.values(charachters)[i][index]!==undefined;
+  const charachters = check()
+  for (let i=0;i<charachters.length;i++) {
+    for (let n=level/charachters.length;n > 0;n--) {
+      let exist = false;
+      while (!exist) {
+        index = Math.floor(Math.random() * 37)
+        exist =charachters[i][index] !== undefined;
       }
-      pass.push(Object.values(charachters)[i][index])
+      pass.push(charachters[i][index])
     }
   }
-  var strong=new Array();
-  for(var i in pass){
-    var exist=false;
-    while(!exist){
-      var index=Math.floor(Math.random()* pass.length)
-      var exist=pass[index]!==undefined;
+  let strong = new Array();
+  for (const i in pass) {
+    exist = false;
+    while (!exist) {
+      index = Math.floor(Math.random() * pass.length)
+      exist = pass[index] !== undefined;
     }
     strong.push(pass[index])
   }
-  show.textContent=strong.join('');
+  document.querySelector('.password').textContent = strong.join('');
 }
