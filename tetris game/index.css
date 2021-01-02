@@ -1,0 +1,26 @@
+.themecolors{
+  background-color:#e2ded3;
+  background-color: #857671;
+  background-color: #4e413b;
+  background-color: #ff6d24;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #857671;
+}
+
+.game-container{
+  padding-left:35%;
+  padding-top: 10%;
+}
+
+
+canvas{
+  background-color: #e2ded3;
+  border-radius: 10px;
+  border: #4e413b80 5px solid;
+  box-shadow:#706562 0px 0px 30px 30px;
+}
