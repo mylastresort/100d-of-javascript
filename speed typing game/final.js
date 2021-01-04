@@ -1,210 +1,131 @@
-let words=document.getElementById('type-area');
-let typing=document.getElementById('words')
+//the paragraph to fetch
+const text = "then came the night of the first falling star it was seen early in the morning rushing over winchester eastward a line of flame high in the atmosphere hundreds must have seen it and taken it for an ordinary falling star it seemed that it fell to earth about one hundred miles east of him";
 
-const text = "Then came the night of the first falling star It was seen early in the morning rushing over Winchester eastward a line of flame high in the atmosphere Hundreds must have seen it and taken it for an ordinary falling star It seemed that it fell to earth about one hundred miles east of him";            //the paragraph to fetch
-let textSplited= text.split(' ')          //count the words on the paragraph (output:9 elements)
+const wordsInterface = document.getElementById('type-area');
+const typearea = document.getElementById('words');
 
-for (const e in textSplited){     //create divs for N words
-  const newDiv=document.createElement('div');
-  newDiv.classList='app';
-  newDiv.setAttribute('id',`div${e}`);
-  words.appendChild(newDiv);
-  for(const i of textSplited[e]){
-    let letterElement=document.createElement('span');
-    letterElement.classList='normal';
-    let newLetter=document.createTextNode(i)
-    letterElement.appendChild(newLetter)
-    newDiv.appendChild(letterElement)
-  }
-}
-
-
-document.getElementById(`div0`).style.borderBottom="#646669 2.5px solid";
-
-
-let controls={
-  counter:0,
-  next:function(){
-    if(this.counter>0){
-      document.getElementById(`div${this.counter-1}`).style.borderBottom='';
+window.onload = init => {
+  //count the words on the paragraph
+  textSplited = text.split(' ');
+  //create divs for n words
+  textSplited.forEach((value, index) => {
+    const wordElement = document.createElement('div');
+    wordElement.setAttribute('id', `Div.${index}`);
+    wordElement.classList = 'app';
+    wordsInterface.appendChild(wordElement);
+    //create spans for each letter
+    for (const letter of value) {
+      let letterElement = document.createElement('span');
+      letterElement.classList = 'normal';
+      let letterString = document.createTextNode(letter);
+      letterElement.appendChild(letterString);
+      wordElement.appendChild(letterElement);
     }
-    document.getElementById(`div${this.counter}`).style.borderBottom="#646669 2.5px solid";
+  })
+  //set the bar at the first word
+  document.getElementById('Div.0').style.borderBottom = "#646669 2.5px solid";
+  typearea.value = ' ';
+};
+
+let debounce = function (func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this, args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
+const app = {
+  score: 0,
+  counter: 0,
+  lastInptChecked() {
+    let lastInpt = "";
+    for (const letter of this.letters()) {
+      if (letter.classList.value !== 'normal') {
+        lastInpt += letter.textContent;
+      }
+    };
+    return lastInpt;
+  },
+  letters() {
+    return document.getElementById(`Div.${this.counter}`).childNodes
+  },
+  current() {
     return textSplited[this.counter]
   },
-  prev:function(){
-    document.getElementById(`div${this.counter+1}`).style.borderBottom='';
-    document.getElementById(`div${this.counter}`).style.borderBottom="#646669 2.5px solid";
-    return textSplited[this.counter]
+  showWrong: function (args) {
+    const position = args[0]
+    const letter = args[1]
+    app.letters()[position].textContent = letter;
+    app.letters()[position].classList = 'false';
+  },
+  showRight: function (position) {
+    app.letters()[position].classList = 'true';
+  },
+  bug: function () {
+    let falseLetter = document.createElement('span');
+    falseLetter.classList = 'fix';
+    let letter = typearea.value.trimStart().slice(-1);
+    let letterElement = document.createTextNode(letter);
+    falseLetter.appendChild(letterElement);
+    document.getElementById(`Div.${app.counter}`).appendChild(falseLetter);
   }
-  ,
-  position:function(){
-    return document.getElementById(`div${this.counter}`).childNodes
-  }
-  ,
-  spanPosition:function(){
-    return document.getElementById(`div${this.counter}`)
-  }
-}  
+};
 
+let play = debounce(function (key) {
+  document.getElementById('score').textContent = `Score : ${app.score}`
+  check(key)
+    .then(app.showRight)
+    .catch(_ => { if (_ !== 'reject') { app.showWrong(_) } });
+}, 0.4);
 
+function check(key) {
+  return new Promise((resolve, reject) => {
+    if (key.data === ' ') {
+      if (typearea.value.trim() === app.current()) app.score++;
+      app.counter++;
+      typearea.value = ' ';
+      document.getElementById(`Div.${app.counter - 1}`).style.borderBottom = "";
+      document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
+      reject('reject');
+    } else if (typearea.value.trimStart().length > app.current().length && key.inputType !== 'deleteContentBackward'
+    && key.data !== ' ') {
+      app.bug();
+      reject('reject');
+    } else if (key.inputType === 'deleteContentBackward') {
+      let position = app.lastInptChecked().length - 1;
+      if (!!app.counter && !typearea.value.length) {
+        app.letters()[0].textContent = app.current().charAt(0);
+        app.letters()[0].classList = 'normal';
+        app.counter--;
+        typearea.value = ' '.concat(app.lastInptChecked());
+        document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
+        document.getElementById(`Div.${app.counter + 1}`).style.borderBottom = "";
+      } else if (app.letters()[position].classList === 'fix') {
+        app.letters()[position].remove();
+      } else {
+        app.letters()[position].textContent = app.current().charAt(position);
+        app.letters()[position].classList = 'normal';
+      };
+      reject('reject');
+    } else if (typearea.value.trimStart().charAt(app.lastInptChecked().length) === app.current().charAt(app.lastInptChecked().length)) {
+      resolve(app.lastInptChecked().length);
+    } else {
+      reject([app.lastInptChecked().length, typearea.value.trimStart().charAt(app.lastInptChecked().length)]);
+    };
+  });
+};
 
-
-
-
-typing.onkeydown=(e)=>{
-  // if(app.bug){
-  //   app.bug=false;
-  //   return e.code=false;
-  // }
-  switch(e.code){
-    case 'Enter':
-      return false;
-    case 'ArrowLeft':
-      return false;
-    case'ArrowUp':
-      return false;
-    case 'ArrowDown':
-      return false;
-    case 'ArrowRight':
-      return false;
-    case'Backspace':
-      if(!app.bug){
-        app.bug=true;
-        if (typing.value!=='' && app.wordHistory.size!==0){
-          const last =app.wordHistory.get(controls.counter).size-1;
-          app.wordHistory.get(controls.counter).get(last).clean();
-        }else {
-          controls.counter=controls.counter-1;
-          controls.prev()
-          typing.value=`${app.inputs.get(controls.counter)} `;
-        }
-        app.bug=false;
-        return;
-      }else{
-        return false;
-      }
-    case 'Space':
-      setTimeout(()=>{
-        controls.counter=controls.counter+1;
-        controls.next()
-        typing.value='';
-      },50)
-      return false;
-    }
-}
-
-
-
-
-
-typing.onkeyup=()=>{
-  app.inputs.set(controls.counter,typing.value)
-  check();
-}
-
-
-
-function check(){
-  const input=app.inputs.get(controls.counter);
-  const nextWord=controls.next();
-  let spanPosition=controls.position();
-
-  if(input===nextWord){
-    spanPosition.forEach((e)=>{e.classList='true'})
-    app.wordHistory.clear();    //clear the items once the word is totally right 
-    app.inputs.clear()
-  }
-  else if(input.length>nextWord.length){
-    let uncorrectedLetters=input.slice(nextWord.length,input.length)
-    for (var i in uncorrectedLetters){
-      var i=JSON.parse(i);
-      if(i>=uncorrectedLetters.length-1 || uncorrectedLetters.length===1){
-        app.history('',uncorrectedLetters[i],input.length-1,controls.counter);
-        app.fix(controls.counter,input.length-1)
-      }
-    }
-    // if(uncorrectedLetters.length===3){
-    //   app.bug=true;
-    // }
-  }
-  else{
-    //app.bug=false;
-    for(var i in input){
-      var  i=JSON.parse(i);
-      if(nextWord[i]===input[i] && spanPosition[i].classList=='normal'){
-        if(input.length===1){
-          app.history(nextWord[i],input[i],i,controls.counter,nextWord);
-          app.wordHistory.get(controls.counter).get(i).showRight();
-        } 
-        else{
-          app.history(nextWord[i],input[i],i,controls.counter,nextWord);
-          app.wordHistory.get(controls.counter).get(i).showRight();  
-        }  
-      }else if(nextWord[i]!==input[i]){
-        app.history(nextWord[i],input[i],i,controls.counter,nextWord);
-        app.wordHistory.get(controls.counter).get(i).showWrong();
-      }  
-    }  
-  }  
-}  
-
-
-///I did this just to deal with prototypes and the map() constructor
-
-var app={
-  history:function(right,wrong,index,wordIndex){
-    if(this.wordHistory.has(wordIndex)){
-      this.wordHistory.get(wordIndex).set(index,new app.save(right,wrong,index,wordIndex))
-    }
-    else if(this.wordHistory.get(wordIndex)===undefined){
-      this.wordHistory.set(wordIndex,new Map())
-      this.wordHistory.get(wordIndex).set(index,new app.save(right,wrong,index,wordIndex))
-    }
-    else{
-      this.wordHistory.set(wordIndex,new Map())
-    }
-  },bug:false
-  ,
-  fix:function(indexWord,index){
-    let falseLetters=document.createElement('span');
-    falseLetters.classList='fix';
-    let letter=this.wordHistory.get(indexWord).get(index).wrong;
-    let newLetter=document.createTextNode(letter);
-    falseLetters.appendChild(newLetter);
-    let spanPosition=controls.spanPosition()
-    spanPosition.appendChild(falseLetters)
-  }  
-  ,
-  wordHistory:new Map()
-  ,
-  save:function(right,wrong,index,wordIndex){
-    this.right=right;
-    this.wrong=wrong;
-    this.index=index;
-    this.wordIndex=wordIndex;
-  }  
-  ,
-  inputs:new Map()
-}
-
-
-
-
-app.save.prototype.clean=function(){
-  if(controls.position()[this.index].classList==='fix'){
-    controls.position()[this.index].remove()
-  }else{
-    controls.position()[this.index].textContent=this.right;
-    controls.position()[this.index].classList='normal'
-  }
-  app.wordHistory.get(controls.counter).delete(this.wordIndex)
-}
-
-app.save.prototype.showWrong=function(){
-  controls.position()[this.index].textContent=this.wrong;
-  controls.position()[this.index].classList='false'
-}
-app.save.prototype.showRight=function(){
-  controls.position()[this.index].textContent=this.right;
-  controls.position()[this.index].classList='true'
-}
+typearea.oninput = play;
+//get rid of the destroying keys: thoses keys will destroy the formed word
+typearea.onkeydown = key => {
+  if (key.code === 'Enter' || key.code === 'ArrowUp' || key.code === 'ArrowDown'
+    || key.code === 'ArrowLeft' || key.code === 'ArrowRight') return false;
+};
