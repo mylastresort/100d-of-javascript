@@ -2,11 +2,7 @@
   margin: 0;
   padding: 0;
 }
-body{
-  background-color: rgb(219, 219, 219);
-}
-
-
+body{ background-color: rgb(219, 219, 219)}
 .page{
   background-color: rgb(247, 247, 247);
   width: 90vh;
@@ -22,14 +18,11 @@ body{
   margin-bottom: 10%;
   position: relative;
 }
-
 p{
   font-size: 50%;
   text-align: start;
-  line-height: 140%;
+  line-height: 160%;
 }
-
-
 .tool{
   width: 10%;
   margin-left:2% ;
@@ -39,33 +32,13 @@ p{
   position: fixed;
   background-color: burlywood;
   cursor: pointer;
-  
 }
-
-.yellow{
-  background-color: #f7f700;
-}
-.green{
-  background-color: #00f700;
-}
-.aqua{
-  background-color: #00f7f7;
-}
-.red{
-  background-color: #f70000;
-}
-.dark-turquoise{
-  background-color: #007c7c;
-}
-.purple{
-  background-color: #7c007c;
-}
-.pear{
-  background-color: #7c7c00;
-}
-.gray{
-  background-color: #7c7c7c;
-}
-.gray-white{
-  background-color: #bababa;
-}
+.yellow { background-color: #f7f700}
+.green { background-color: #00f700}
+.aqua { background-color: #00f7f7}
+.red { background-color: #f70000}
+.dark-turquoise { background-color: #007c7c}
+.purple { background-color: #7c007c}
+.pear { background-color: #7c7c00}
+.gray { background-color: #7c7c7c}
+.gray-white { background-color: #bababa }
