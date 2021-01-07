@@ -12,7 +12,6 @@ window.onload = init => {
     const wordElement = document.createElement('div');
     wordElement.setAttribute('id', `Div.${index}`);
     wordElement.classList = 'app';
-    wordsInterface.appendChild(wordElement);
     //create spans for each letter
     for (const letter of value) {
       let letterElement = document.createElement('span');
@@ -21,6 +20,10 @@ window.onload = init => {
       letterElement.appendChild(letterString);
       wordElement.appendChild(letterElement);
     }
+    let falseLetter = document.createElement('span');
+    falseLetter.classList = 'fix';
+    wordElement.appendChild(falseLetter);
+    wordsInterface.appendChild(wordElement);
   })
   //set the bar at the first word
   document.getElementById('Div.0').style.borderBottom = "#646669 2.5px solid";
@@ -48,59 +51,61 @@ const app = {
   lastInptChecked() {
     let lastInpt = "";
     for (const letter of this.letters()) {
-      if (letter.classList.value !== 'normal') {
-        lastInpt += letter.textContent;
-      }
+      if (letter.classList.value !== 'normal') lastInpt += letter.textContent;
     };
     return lastInpt;
   },
+  wordElement() {
+    return document.getElementById(`Div.${this.counter}`);
+  },
   letters() {
-    return document.getElementById(`Div.${this.counter}`).childNodes
+    return document.getElementById(`Div.${this.counter}`).childNodes;
   },
   current() {
-    return textSplited[this.counter]
-  },
-  showWrong: function (args) {
-    const position = args[0]
-    const letter = args[1]
-    app.letters()[position].textContent = letter;
-    app.letters()[position].classList = 'false';
-  },
-  showRight: function (position) {
-    app.letters()[position].classList = 'true';
-  },
-  bug: function () {
-    let falseLetter = document.createElement('span');
-    falseLetter.classList = 'fix';
-    let letter = typearea.value.trimStart().slice(-1);
-    let letterElement = document.createTextNode(letter);
-    falseLetter.appendChild(letterElement);
-    document.getElementById(`Div.${app.counter}`).appendChild(falseLetter);
+    return textSplited[this.counter];
   }
 };
 
-let play = debounce(function (key) {
-  document.getElementById('score').textContent = `Score : ${app.score}`
-  check(key)
-    .then(app.showRight)
-    .catch(_ => { if (_ !== 'reject') { app.showWrong(_) } });
-}, 0.4);
+//TODO:
+///To fix the bug in this app:
+///I have to make a charachter counter
+///bacause when you press a five char at once you will notice some chars are missed during checking
 
-function check(key) {
-  return new Promise((resolve, reject) => {
+
+typearea.oninput = debounce(function (key) {
+  document.getElementById('score').textContent = `Score : ${app.score}`
+  new Promise((resolve, reject) => {
     if (key.data === ' ') {
+      resolve('space');
+    } else if (typearea.value.trimStart().length > app.current().length
+      && key.inputType !== 'deleteContentBackward'
+      && key.data !== ' ') {
+      resolve('bug');
+    } else if (key.inputType === 'deleteContentBackward') {
+      resolve('delete');
+    } else if (typearea.value.trimStart().charAt(app.lastInptChecked().length) === app.current().charAt(app.lastInptChecked().length)) {
+      resolve(app.lastInptChecked().length);
+    } else {
+      reject([
+        app.lastInptChecked().length,
+        typearea.value.trimStart().charAt(app.lastInptChecked().length)
+      ]);
+    };
+  })
+  //show the letter in the correct form
+  .then(arg => {
+    if (arg === 'space' || arg === 'delete') return arg;
+    //then the arg is the position
+    app.letters()[arg].classList = 'true'; return null;
+  })
+  .then(arg => {
+    if (arg === 'space') {
       if (typearea.value.trim() === app.current()) app.score++;
       app.counter++;
       typearea.value = ' ';
       document.getElementById(`Div.${app.counter - 1}`).style.borderBottom = "";
       document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
-      reject('reject');
-    } else if (typearea.value.trimStart().length > app.current().length && key.inputType !== 'deleteContentBackward'
-    && key.data !== ' ') {
-      app.bug();
-      reject('reject');
-    } else if (key.inputType === 'deleteContentBackward') {
-      let position = app.lastInptChecked().length - 1;
+    } else if(arg === 'delete') {
       if (!!app.counter && !typearea.value.length) {
         app.letters()[0].textContent = app.current().charAt(0);
         app.letters()[0].classList = 'normal';
@@ -108,22 +113,28 @@ function check(key) {
         typearea.value = ' '.concat(app.lastInptChecked());
         document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
         document.getElementById(`Div.${app.counter + 1}`).style.borderBottom = "";
-      } else if (app.letters()[position].classList === 'fix') {
-        app.letters()[position].remove();
+      } else if (typearea.value.trimStart().length - 1 >= app.current().length) {
+        app.wordElement().lastChild.textContent = app.wordElement().lastChild.textContent.slice(0,-1)
       } else {
+        let position = app.lastInptChecked().length - 1;
         app.letters()[position].textContent = app.current().charAt(position);
         app.letters()[position].classList = 'normal';
       };
-      reject('reject');
-    } else if (typearea.value.trimStart().charAt(app.lastInptChecked().length) === app.current().charAt(app.lastInptChecked().length)) {
-      resolve(app.lastInptChecked().length);
-    } else {
-      reject([app.lastInptChecked().length, typearea.value.trimStart().charAt(app.lastInptChecked().length)]);
-    };
-  });
-};
+    } else if (arg === 'bug'){
+      app.wordElement().lastChild.textContent += typearea.value.slice(-1);
+    }
+  })
+  //show the false letters
+  .catch(args => {
+    const position = args[0]
+    const letter = args[1]
+    console.log(args);
+    app.letters()[position].textContent = letter;
+    app.letters()[position].classList = 'false';
+  })
+  .catch(err => console.log(err));
+}, 0.4);
 
-typearea.oninput = play;
 //get rid of the destroying keys: thoses keys will destroy the formed word
 typearea.onkeydown = key => {
   if (key.code === 'Enter' || key.code === 'ArrowUp' || key.code === 'ArrowDown'
