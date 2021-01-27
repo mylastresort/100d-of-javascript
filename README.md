@@ -14,7 +14,6 @@ Demo : https://temp-mail.org/fr/
 
 **Day 5 : Tabs Project with Popups images.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/VwadEPQ
 
 **Day 6 : Simple Notes App.**
 
@@ -22,11 +21,9 @@ Demo : https://codepen.io/MehdiAoussiad/full/rNerypg
 
 **Day 7 : Loading animation.**
 
-Demo : https://www.youtube.com/watch?v=IeS0T_30PSs&ab_channel=RedStapler
 
 **Day 8 : Simple Movie App (external Api).**
 
-Demo: https://www.youtube.com/watch?v=fqL-xgrejZg&ab_channel=TVTIME
 
 **Day 9 : Speed Typing Game.**
 
@@ -38,7 +35,6 @@ Demo : https://codepen.io/MehdiAoussiad/full/gOrooxJ
 
 **Day 11 : Calculator.**
 
-Demo : https://codepen.io/last-resort/pen/XWKqQEz
 
 **Day 12 : Password Generator.**
 
