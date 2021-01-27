@@ -33,12 +33,12 @@ p{
   background-color: burlywood;
   cursor: pointer;
 }
-.yellow { background-color: #f7f700}
-.green { background-color: #00f700}
-.aqua { background-color: #00f7f7}
-.red { background-color: #f70000}
-.dark-turquoise { background-color: #007c7c}
-.purple { background-color: #7c007c}
-.pear { background-color: #7c7c00}
-.gray { background-color: #7c7c7c}
-.gray-white { background-color: #bababa }
+.yellow, #yellow { background-color: #f7f700}
+.green, #green { background-color: #00f700}
+.aqua, #aqua { background-color: #00f7f7}
+.red, #red { background-color: #f70000}
+.dark-turquoise, #dark-turquoise { background-color: #007c7c}
+.purple, #purple { background-color: #7c007c}
+.pear , #pear{ background-color: #7c7c00}
+.gray, #gray { background-color: #7c7c7c}
+.gray-white, #gray-white { background-color: #bababa }

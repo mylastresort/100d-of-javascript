@@ -10,7 +10,19 @@
 
 <body>
   <div class="tool" id="tool" >TEXT HIGHLIGHT TOOL
-    <div id="highlight">Place your mouse here to highlight your selected text</div>
+    <h5>mouse over to choose</h5>
+    <div id="highlight">
+      <span id="yellow" onmouseover="highlight(true,'yellow')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="green" onmouseover="highlight(true,'green')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="aqua" onmouseover="highlight(true,'aqua')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="red" onmouseover="highlight(true,'red')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="dark-turquoise" onmouseover="highlight(true,'dark-turquoise')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="purple" onmouseover="highlight(true,'purple')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="pear" onmouseover="highlight(true,'pear')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="gray" onmouseover="highlight(true,'gray')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+      <span id="gray-white" onmouseover="highlight(true,'gray-white')" style="cursor: pointer; width: 20px; height: 20px;">color</span>
+    </div>
+    <button onclick="highlight(false)">unhighlight</button>
   </div>
   <script src="index.js"></script>
 </body>

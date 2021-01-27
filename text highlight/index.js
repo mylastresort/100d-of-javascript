@@ -1,10 +1,8 @@
 let tool = document.getElementById('highlight');
-tool.onmouseover = _ => highlight(true, 'yellow');
 
 function highlight(highlight, color) {
   const selectedArea = window.getSelection().getRangeAt(0);
-  const selectedText = selectedArea.toString();
-  const textnode = document.createTextNode(selectedText);
+  const textnode = document.createTextNode(selectedArea.toString());
   if (highlight) {
     const element = document.createElement('span');
     element.classList = color;
@@ -12,15 +10,31 @@ function highlight(highlight, color) {
     selectedArea.surroundContents(element);
     element.appendChild(textnode);
   } else {
-    selectedArea.deleteContents();
+    const parent = selectedArea.commonAncestorContainer.parentElement;
+    //I have to fix a bug, when you choose to unhighlight an unhighlited text
+    if(selectedArea.startContainer === selectedArea.endContainer) {
+      parent.remove()
+    }else {
+      selectedArea.deleteContents()
+    };
+
     selectedArea.insertNode(textnode);
-    let parent = selectedArea.commonAncestorContainer.parentElement;
+    parent.lastChild.childNodes.forEach(e => {
+      if (e.nodeName === 'SPAN' && !e.textContent) e.remove();
+    })
     parent.normalize();
   };
-}
+};
 
 window.onload = _ => {
-  fetch('https://download848.mediafire.com/qdfaqo2kd1ng/oxhcvquhgt0hyie/book.json')
+  fetch(new Request('http://download848.mediafire.com/u6p3t6ee5hpg/oxhcvquhgt0hyie/book.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    mode: 'cors',
+    cache: 'default'
+  }))
     .then(file => file.json())
     .then(e => {
       const cover = document.createElement('div');
