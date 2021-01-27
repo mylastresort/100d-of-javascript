@@ -1,10 +1,10 @@
-**Day 1 : Simple Image Slider.(not hosted)**
+**Day 1 : Simple Image Slider (not hosted).**
 
 **Day 2 : Simple ToDo List.**
 
 Demo : https://codepen.io/kayfo23/pen/OJMWbPZ
 
-**Day 3 : Simple Music Player. (not hosted)**
+**Day 3 : Simple Music Player (not hosted).**
 
 Demo : https://codepen.io/last-resort/pen/yLJjrmz
 
@@ -56,27 +56,27 @@ Demo : https://codepen.io/MehdiAoussiad/full/WNxroGv
 
 Demo : https://codepen.io/daajust/pen/obVROB
 
-**Day 16 : Snake Game.(using canvas element)**
+**Day 16 : Snake Game (using canvas element).**
 
 Demo : https://codepen.io/pablo1843/pen/aWrorK
 
-**Day 17 : Pickle Rick Maze Game.**
+**Day 17 : Pickle Rick Maze Game (using canvas element).**
 
 Demo : https://codepen.io/TheCodeDepository/pen/jKBaoN
 
-**Day 18 : Pong Game.**
+**Day 18 : Pong Game (using canvas element).**
 
 Demo : https://codepen.io/gdube/pen/JybxxZ
 
-**Day 19 : Red Rect Game.**
+**Day 19 : Red Rect Game (using canvas element).**
 
 Demo : https://codepen.io/yossigor/pen/MQqZNW
 
-**Day 20 : Brick Breacker Game.**
+**Day 20 : Brick Breacker Game (using canvas element).**
 
 Demo : https://codepen.io/NCruz007/pen/VjGyyK
 
-**Day 21 : Tetris Game.**
+**Day 21 : Tetris Game (using canvas element).**
 
 Demo : https://codepen.io/skybirdtrill/pen/NNwzqN
 

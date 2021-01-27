@@ -92,47 +92,45 @@ typearea.oninput = debounce(function (key) {
       ]);
     };
   })
-  //show the letter in the correct form
-  .then(arg => {
-    if (arg === 'space' || arg === 'delete') return arg;
-    //then the arg is the position
-    app.letters()[arg].classList = 'true'; return null;
-  })
-  .then(arg => {
-    if (arg === 'space') {
-      if (typearea.value.trim() === app.current()) app.score++;
-      app.counter++;
-      typearea.value = ' ';
-      document.getElementById(`Div.${app.counter - 1}`).style.borderBottom = "";
-      document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
-    } else if(arg === 'delete') {
-      if (!!app.counter && !typearea.value.length) {
-        app.letters()[0].textContent = app.current().charAt(0);
-        app.letters()[0].classList = 'normal';
-        app.counter--;
-        typearea.value = ' '.concat(app.lastInptChecked());
+    //show the letter in the correct form
+    .then(arg => {
+      if (arg === 'space' || arg === 'delete' || arg === 'bug') return arg;
+      //then the arg is the position
+      app.letters()[arg].classList = 'true';
+    })
+    .then(arg => {
+      if (arg === 'space') {
+        if (typearea.value.trim() === app.current()) app.score++;
+        app.counter++;
+        typearea.value = ' ';
+        document.getElementById(`Div.${app.counter - 1}`).style.borderBottom = "";
         document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
-        document.getElementById(`Div.${app.counter + 1}`).style.borderBottom = "";
-      } else if (typearea.value.trimStart().length - 1 >= app.current().length) {
-        app.wordElement().lastChild.textContent = app.wordElement().lastChild.textContent.slice(0,-1)
-      } else {
-        let position = app.lastInptChecked().length - 1;
-        app.letters()[position].textContent = app.current().charAt(position);
-        app.letters()[position].classList = 'normal';
-      };
-    } else if (arg === 'bug'){
-      app.wordElement().lastChild.textContent += typearea.value.slice(-1);
-    }
-  })
-  //show the false letters
-  .catch(args => {
-    const position = args[0]
-    const letter = args[1]
-    console.log(args);
-    app.letters()[position].textContent = letter;
-    app.letters()[position].classList = 'false';
-  })
-  .catch(err => console.log(err));
+      } else if (arg === 'delete') {
+        if (!!app.counter && !typearea.value.length) {
+          app.letters()[0].textContent = app.current().charAt(0);
+          app.letters()[0].classList = 'normal';
+          app.counter--;
+          typearea.value = ' '.concat(app.lastInptChecked());
+          document.getElementById(`Div.${app.counter}`).style.borderBottom = "#646669 2.5px solid";
+          document.getElementById(`Div.${app.counter + 1}`).style.borderBottom = "";
+        } else if (typearea.value.trimStart().length - 1 >= app.current().length) {
+          app.wordElement().lastChild.textContent = app.wordElement().lastChild.textContent.slice(0, -1)
+        } else {
+          let position = app.lastInptChecked().length - 1;
+          app.letters()[position].textContent = app.current().charAt(position);
+          app.letters()[position].classList = 'normal';
+        };
+      } else if (arg === 'bug') {
+        app.wordElement().lastChild.textContent += typearea.value.slice(-1);
+      }
+    })
+    //show the false letters
+    .catch(args => {
+      const [position, letter] = args;
+      app.letters()[position].textContent = letter;
+      app.letters()[position].classList = 'false';
+    })
+    .catch(err => console.log(err));
 }, 0.4);
 
 //get rid of the destroying keys: thoses keys will destroy the formed word
