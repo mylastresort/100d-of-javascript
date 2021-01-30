@@ -1,60 +1,51 @@
-**Day 1 : Simple Image Slider (not hosted).**
+**Day 12 : Password Generator.**
 
-**Day 2 : Simple ToDo List.**
 
-Demo : https://codepen.io/kayfo23/pen/OJMWbPZ
+**Day 7 : Loading animation bar.**
 
-**Day 3 : Simple Music Player (not hosted).**
+Demo : https://codepen.io/last-resort/full/ZEBYGNR
 
-Demo : https://codepen.io/last-resort/pen/yLJjrmz
+**Day 13 : Theme Toggler**
 
-**Day 4 : Email Generator (using ajax xmlhttprequest to get data from an api).**
 
-Demo : https://temp-mail.org/fr/
+**Day 10 : Countdown Timer.**
 
-**Day 5 : Tabs Project with Popups images.**
 
+**Day 14 : Text Highlight.**
+
+
+**Day 1 : Simple ToDo List.**
+
+Task : https://codepen.io/kayfo23/pen/OJMWbPZ
+
+
+**Day 2 : Simple Music Player.**
+
+
+**Day 3 : Email Generator (using ajax xmlhttprequest to get data from an api).**
+
+Demo : https://codepen.io/last-resort/pen/yLVyNRp
 
 **Day 6 : Simple Notes App.**
 
-Demo : https://codepen.io/MehdiAoussiad/full/rNerypg
-
-**Day 7 : Loading animation.**
+Demo : https://codepen.io/last-resort/pen/zYoxGMJ
 
 
 **Day 8 : Simple Movie App (external Api).**
 
+Demo : https://codepen.io/last-resort/pen/bGBNdOg
 
 **Day 9 : Speed Typing Game.**
 
-Demo : https://monkeytype.com/
-
-**Day 10 : Countdown Timer.**
-
-Demo : https://codepen.io/MehdiAoussiad/full/gOrooxJ
-
-**Day 11 : Calculator.**
-
-
-**Day 12 : Password Generator.**
-
-Demo : https://codepen.io/MehdiAoussiad/full/WNwLpLo
-
-**Day 13 : Theme Toggler**
-
-Demo : https://codepen.io/MehdiAoussiad/full/WNwWKBJ
-
-**Day 14 : Text Highlight.**
-
-Demo : https://codepen.io/MehdiAoussiad/full/WNxroGv
+Task : https://monkeytype.com/
 
 **Day 15 : Tic-Tac-Toe Game.**
 
-Demo : https://codepen.io/daajust/pen/obVROB
+Task : https://codepen.io/daajust/pen/obVROB
 
 **Day 16 : Snake Game (using canvas element).**
 
-Demo : https://codepen.io/pablo1843/pen/aWrorK
+Task : https://codepen.io/pablo1843/pen/aWrorK
 
 **Day 17 : Pickle Rick Maze Game (using canvas element).**
 
@@ -62,18 +53,18 @@ Demo : https://codepen.io/TheCodeDepository/pen/jKBaoN
 
 **Day 18 : Pong Game (using canvas element).**
 
-Demo : https://codepen.io/gdube/pen/JybxxZ
+Demo : https://codepen.io/last-resort/full/mdOyJjy
 
 **Day 19 : Red Rect Game (using canvas element).**
 
-Demo : https://codepen.io/yossigor/pen/MQqZNW
+Demo : https://codepen.io/last-resort/full/ExNajRe
 
 **Day 20 : Brick Breacker Game (using canvas element).**
 
-Demo : https://codepen.io/NCruz007/pen/VjGyyK
+Demo : https://codepen.io/last-resort/full/WNobvyp
 
 **Day 21 : Tetris Game (using canvas element).**
 
-Demo : https://codepen.io/skybirdtrill/pen/NNwzqN
+Task : https://codepen.io/skybirdtrill/full/NNwzqN
 
 **Day 22 : Basketball Game.**
