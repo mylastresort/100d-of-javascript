@@ -18,7 +18,7 @@ Demo : https://codepen.io/last-resort/full/yLVyNRp
 
 **Day 9 : Simple Notes App.**
 
-Demo : https://codepen.io/last-resort/full/zYoxGMJ
+Demo : https://jsitor.com/jY3pjxr-J
 
 **Day 10 : Simple Movie App (external Api).**
 
@@ -36,12 +36,12 @@ Task : https://traversy-udemy-course.getsimpleapp.com/20
 
 **Day 14 : Tic-Tac-Toe Game.**
 
-Task : https://codepen.io/daajust/full/obVROB
+Task : https://codepen.io/daajust/full/obVROB\
 Demo : https://extra-tictactoe.netlify.app/
 
 **Day 15 : Snake Game (using canvas element).**
 
-Task : https://codepen.io/pablo1843/full/aWrorK
+Task : https://codepen.io/pablo1843/full/aWrorK\
 Demo : https://codepen.io/last-resort/full/YzpPNGw
 
 **Day 16 : Pickle Rick Maze Game (using canvas element).**
@@ -54,7 +54,7 @@ Demo : https://codepen.io/last-resort/full/mdOyJjy
 
 **Day 18 : Red Rect Game (using canvas element).**
 
-Task : https://codepen.io/yossigor/full/MQqZNW
+Task : https://codepen.io/yossigor/full/MQqZNW\
 Demo : https://codepen.io/last-resort/full/ExNajRe
 
 **Day 19 : Brick Breacker Game (using canvas element).**
