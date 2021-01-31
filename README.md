@@ -1,70 +1,88 @@
-**Day 12 : Password Generator.**
+**Day 1 : Password Generator.**
 
+**Day 2 : Loading animation bar.**
 
-**Day 7 : Loading animation bar.**
+**Day 3 : Theme Toggler**
 
-Demo : https://codepen.io/last-resort/full/ZEBYGNR
+**Day 4 : Countdown Timer.**
 
-**Day 13 : Theme Toggler**
+**Day 5 : Text Highlight.**
 
+**Day 6 : Simple ToDo List.**
 
-**Day 10 : Countdown Timer.**
+**Day 7 : Simple Music Player.**
 
+**Day 8 : Email Generator (using ajax xmlhttprequest to get data from an api).**
 
-**Day 14 : Text Highlight.**
+Demo : https://codepen.io/last-resort/full/yLVyNRp
 
+**Day 9 : Simple Notes App.**
 
-**Day 1 : Simple ToDo List.**
+Demo : https://codepen.io/last-resort/full/zYoxGMJ
 
-Task : https://codepen.io/kayfo23/pen/OJMWbPZ
+**Day 10 : Simple Movie App (external Api).**
 
+Demo : https://codepen.io/last-resort/full/bGBNdOg
 
-**Day 2 : Simple Music Player.**
+**Day 11 : Hangman Game.**
 
+Task : https://traversy-udemy-course.getsimpleapp.com/7
 
-**Day 3 : Email Generator (using ajax xmlhttprequest to get data from an api).**
+**Day 12 : Guess the number (using speech recognition API).**
 
-Demo : https://codepen.io/last-resort/pen/yLVyNRp
+Task : https://traversy-udemy-course.getsimpleapp.com/20
 
-**Day 6 : Simple Notes App.**
+**Day 13 : Speed Typing Game.**
 
-Demo : https://codepen.io/last-resort/pen/zYoxGMJ
+**Day 14 : Tic-Tac-Toe Game.**
 
+Task : https://codepen.io/daajust/full/obVROB
+Demo : https://extra-tictactoe.netlify.app/
 
-**Day 8 : Simple Movie App (external Api).**
+**Day 15 : Snake Game (using canvas element).**
 
-Demo : https://codepen.io/last-resort/pen/bGBNdOg
+Task : https://codepen.io/pablo1843/full/aWrorK
+Demo : https://codepen.io/last-resort/full/YzpPNGw
 
-**Day 9 : Speed Typing Game.**
+**Day 16 : Pickle Rick Maze Game (using canvas element).**
 
-Task : https://monkeytype.com/
+Task : https://codepen.io/TheCodeDepository/full/jKBaoN
 
-**Day 15 : Tic-Tac-Toe Game.**
-
-Task : https://codepen.io/daajust/pen/obVROB
-
-**Day 16 : Snake Game (using canvas element).**
-
-Task : https://codepen.io/pablo1843/pen/aWrorK
-
-**Day 17 : Pickle Rick Maze Game (using canvas element).**
-
-Demo : https://codepen.io/TheCodeDepository/pen/jKBaoN
-
-**Day 18 : Pong Game (using canvas element).**
+**Day 17 : Pong Game (using canvas element).**
 
 Demo : https://codepen.io/last-resort/full/mdOyJjy
 
-**Day 19 : Red Rect Game (using canvas element).**
+**Day 18 : Red Rect Game (using canvas element).**
 
+Task : https://codepen.io/yossigor/full/MQqZNW
 Demo : https://codepen.io/last-resort/full/ExNajRe
 
-**Day 20 : Brick Breacker Game (using canvas element).**
+**Day 19 : Brick Breacker Game (using canvas element).**
 
 Demo : https://codepen.io/last-resort/full/WNobvyp
 
-**Day 21 : Tetris Game (using canvas element).**
+**Day 20 : Tetris Game (using canvas element).**
 
 Task : https://codepen.io/skybirdtrill/full/NNwzqN
 
-**Day 22 : Basketball Game.**
+**Day 21 : 2048 Game.**
+
+Task : https://play2048.co
+
+**Day 22 : Drawing App.**
+
+Task : https://1000webgames.com/play-10269-Disney-Planes-Coloring-Book.html
+
+**Day 23 : Fireboy and Watergirl Game.**
+
+Task : https://1000webgames.com/play-10275-Fireboy-And-Watergirl-Forest-Temple.html
+
+**Day 24 : Tower Building Game.**
+
+Task : https://www.bgames.com/puzzle-games/tower_builder/
+
+**Day 25 : 8 Ball Pool Game.**
+
+Task : https://1000webgames.com/play-10296-Pool-8-Ball-Mania.html
+
+**Day 26 : Basketball Game.**
