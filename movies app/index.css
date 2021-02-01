@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-body{background-color: rgb(218, 218, 218)}
+body{background-color: #ffffff}
 .swipe{
   width: 16.6vw;
   height: 100vh;
@@ -20,6 +20,11 @@ body{background-color: rgb(218, 218, 218)}
   margin-bottom: 10%;
   margin-left: 45%;
   color: rgba(245, 245, 245, 0.712);
+}
+.reference {
+  color: #444444;
+  font-size: 14px;
+  font-weight: 600;
 }
 #fea-icons{font-size: 120%}
 #search{
@@ -65,25 +70,42 @@ li{
   margin-bottom: 5%;
   margin-left: 2%;
 }
-#category{
+#searchResult,#category{
   width: 82vw;
   margin-left: 17%;
   position: relative;
   height: 55vh;
   font-family: sans-serif;
 }
-#more,#genre{
+#searchResult {
+  display: inline-block;
+  position: absolute;
+  top: 5vh;
+}
+#more,.genre{
   position: absolute;
   margin: 2%;
   top: 0;
 }
 #more{
+  cursor: pointer;
   right: 0;
   color: #366583;
   font-weight: 550;
   font-size: 90%;
 }
-#genre{
+#return {
+  position: absolute;
+  left: 18vw;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 90%;
+  font-weight: 900;
+  cursor: pointer;
+  color: #2173a5;
+  display: none;
+  top: 1vh;
+}
+.genre{
   font-size: 150%;
   color: #353535;
   left: 0;
@@ -95,10 +117,13 @@ li{
   height: 80%;
   display: flex;
 }
-#demo{
+#demoSearched,#demo{
   position: relative;
   width: 10vw;
   margin: 2%;
+}
+#demoSearched {
+  display: inline-block;
 }
 #add{
   position: absolute;
@@ -108,7 +133,7 @@ li{
   top: -7%;
   padding: 3px 10px 3px 10px;
   color: whitesmoke;
-  background-color: #817e7d;
+  background-color: #aaaaaa;
 }
 img{
   width: 11vw;
