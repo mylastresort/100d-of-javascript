@@ -1,0 +1,70 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#title{
+  width: fit-content;
+  height: 10vh;
+  position: absolute;
+  top: 10vh;
+  font-size: 200%;
+  left: 35vw;
+  font-family: 'Coda Caption', sans-serif;
+  cursor: pointer;
+  color: #21e6c1;
+}
+
+body {
+  background-image: url('https://www.abcya.com/client/assets/spacebg.jpg');
+  background-color: #001e28;
+}
+
+.container {
+  background-color: #071e3de0;
+  width: 60vw;
+  height: 55vh;
+  margin-left: 20vw;
+  margin-top: 20vh;
+  border-radius: 10px;
+  position: relative;
+}
+
+#hints {
+  color: white;
+  font-size: 400%;
+  position: absolute;
+  top: 70%;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  opacity: 1;
+  animation-name: animate;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+i {
+  position: absolute;
+  color: whitesmoke;
+  font-size: 500%;
+  width: 100%;
+  text-align: center;
+  top: 30%;
+}
+
+#instr {
+  font-size: 140%;
+  position: absolute;
+  left: 30%;
+  color: coral;
+  font-family: 'Fjalla One', sans-serif;
+  top: 10%;
+}
+/* theme: #071e3d #1f4287 #278ea5 #21e6c1 */
