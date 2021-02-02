@@ -27,6 +27,7 @@ Demo : https://codepen.io/last-resort/full/bGBNdOg
 **Day 11 : Hangman Game.**
 
 Task : https://traversy-udemy-course.getsimpleapp.com/7
+Demo : https://codepen.io/last-resort/full/JjbdXLZ
 
 **Day 12 : Guess the number (using speech recognition API).**
 
