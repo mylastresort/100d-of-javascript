@@ -31,7 +31,7 @@ Demo : https://codepen.io/last-resort/full/JjbdXLZ
 
 **Day 12 : Guess the number (using speech recognition API).**
 
-Task : https://traversy-udemy-course.getsimpleapp.com/20
+Task : https://traversy-udemy-course.getsimpleapp.com/20 \
 Demo : https://codepen.io/last-resort/full/rNWaEEE
 
 **Day 13 : Speed Typing Game.**
