@@ -26,7 +26,8 @@ Demo : https://codepen.io/last-resort/full/bGBNdOg
 
 **Day 11 : Hangman Game.**
 
-Task : https://traversy-udemy-course.getsimpleapp.com/7
+Task : https://traversy-udemy-course.getsimpleapp.com/7 \
+Demo : https://codepen.io/last-resort/full/JjbdXLZ
 
 **Day 12 : Guess the number (using speech recognition API).**
 
@@ -72,7 +73,7 @@ Task : https://play2048.co
 
 **Day 22 : Drawing App.**
 
-Task : https://1000webgames.com/play-10269-Disney-Planes-Coloring-Book.html
+Task : https://1000webgames.com/play-10269-Disney-Planes-Coloring-Book.html \
 Demo : https://codepen.io/last-resort/full/QWGweWZ
 
 **Day 23 : Fireboy and Watergirl Game.**
