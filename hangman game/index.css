@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #363434;
+  padding-left: 15vw;
+  padding-top: 1vh;
+}
+
+canvas {
+  background-color: #5c5757;
+  border-radius: 20px;
+
+}
+
+#words {
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  text-align: center;
+}
+#letter {
+  border-bottom: 5px rgba(245, 222, 179, 0.74) solid;
+  font-size: 500%;
+  margin-left: 2%;
+  color: transparent;
+  font-family: monospace;
+}
+.container {
+  position: absolute;
+  width: 70vw;
+  background-color:#5c575734;
+  height: 15vh;
+  position: relative;
+  border-radius: 5px;
+}
+
+/* theme : #efecec #62929a #5c5757 #363434 */
