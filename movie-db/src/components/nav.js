@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './nav.css';
 
 
@@ -20,8 +19,8 @@ export default class Nav extends Component {
       <div className="container">
         <div className="nav-container">
           <div className="routes">
-          Home<i class="fas fa-theater-masks"></i>
-            <ul className="setions">
+            Home<i className="fas fa-theater-masks"></i>
+            <ul className="sections">
               <li>Movies</li>
               <li>TV Shows</li>
               <li>People</li>
@@ -30,11 +29,11 @@ export default class Nav extends Component {
           <div className="tools-container">
             <div className="wrapper">
               <ul className="tools">
-                <li><i class="fas fa-plus"></i></li>
+                <li><i className="fas fa-plus"></i></li>
                 <li>EN</li>
                 <li>Login</li>
                 <li>Join TMDb</li>
-                <li><i class="fas fa-search"></i></li>
+                <li><i className="fas fa-search"></i></li>
               </ul>
             </div>
           </div>

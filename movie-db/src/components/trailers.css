@@ -1,21 +1,20 @@
-.popular-container {
-  width: 100%;
+.trailers-container {
+  width: 90%;
   margin: auto;
-  height: 40vh;
+  height: 50vh;
+  margin-top: 2%;
   position: relative;
-  margin-top: 30px;
 }
 
-.popular-sub-container {
-  margin: auto;
-  width: 90%;
+.trailers-sub-container {
+  width: 100%;
   position: relative;
   height: 100%;
 }
 .head {
   position: relative;
 }
-.popular-txt, .options {
+.trailers-txt, .options {
   margin-left: 50px;
 }
 .options{
@@ -27,7 +26,7 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-.popular-txt {
+.trailers-txt {
   font-size: 1.2em;
   font-weight: 600;
 }
@@ -38,22 +37,22 @@
   width: 100%;
   display: flex;
   height:100%;
-  padding-bottom: 30px;
 }
-.popular-demo {
+
+.trailers-demo {
   position: relative;
   background-color:rgba(131, 131, 131, 0.534);
   border-radius: 10px;
   margin-left:10px;
-  padding: 80px;
+  padding: 100px;
+  padding-right: 250px;
 }
-
 .results-container {
   position: relative;
   margin-top: 10px;
   height: 250px;
 }
-.popular-false-ani {
+.trailers-false-ani {
   position: absolute;
   left: 90%;
   opacity: 1;
@@ -61,6 +60,6 @@
   top: 10%;
   height: 100%;
   width: 10%;
-  background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+  background-image: linear-gradient(to right, rgba(255,255,255,0) 0%,#fff 100%);
   right: 0;
 }

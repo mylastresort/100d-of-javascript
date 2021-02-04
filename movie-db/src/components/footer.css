@@ -1,0 +1,44 @@
+.homepage-footer {
+  margin-top: 200px;
+  background-color: #032541;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  color: whitesmoke;
+}
+
+.footer-container {
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+
+}
+
+.join-com, .the-basics, .get-involved, .community, .legal {
+  margin: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+.footer-titles {
+  padding-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+}
+
+.join-com i {
+  font-size: 400%;
+  margin-bottom: 50px;
+}
+
+.join-com button {
+  background-color: whitesmoke ;
+  color:#03b4e4 ;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+}

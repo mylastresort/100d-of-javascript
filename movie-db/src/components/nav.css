@@ -3,7 +3,9 @@
   padding: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-
+.tools .fa-search {
+  color: #03b4e4;
+}
 .nav-container{
   display: flex;
   background-color: #032541;
@@ -20,7 +22,7 @@
   font-weight: 700;
   font-family: 'Noto Sans', sans-serif;
 }
-li {
+.sections li,.tools li {
   cursor: pointer;
   list-style: none;
   text-decoration: none;

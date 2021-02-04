@@ -1,0 +1,47 @@
+.join-container {
+  background-color: goldenrod;
+  width: 90%;
+  margin: auto;
+  margin-top:30px;
+  height: 35vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,190235,ad47dd)/lMnoYqPIAVL0YaLP5YjRy7iwaYv.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: aliceblue;
+  background-position-y: 50%;
+}
+
+.join-title {
+  width: 100%;
+  font-size: 2em;
+  font-weight: 700;
+  padding-left: 4%;
+  padding-top: 2%;
+  height: fit-content;
+}
+
+.join-inst{
+  height: 100%;
+  display: flex;
+}
+
+.join-content {
+  width: 60%;
+  font-size: 1.2em;
+  height: 100%;
+  padding-left: 4%;
+  padding-top: 2%;
+}
+
+.signup-btn {
+  margin-top: 30px;
+  font-size: 1em;
+  padding: 10px;
+  background-color: #805be7;
+  color: aliceblue;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+}
