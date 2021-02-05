@@ -1,7 +1,7 @@
 .popular-container {
   width: 100%;
   margin: auto;
-  height: 40vh;
+  height: fit-content;
   position: relative;
   margin-top: 30px;
 }
@@ -31,28 +31,22 @@
   font-size: 1.2em;
   font-weight: 600;
 }
-.results {
-  overflow-x: scroll;
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  display: flex;
-  height:100%;
-  padding-bottom: 30px;
-}
-.popular-demo {
-  position: relative;
-  background-color:rgba(131, 131, 131, 0.534);
-  border-radius: 10px;
-  margin-left:10px;
-  padding: 80px;
-}
 
 .results-container {
   position: relative;
-  margin-top: 10px;
+  margin-bottom: 90px;
+  padding-top: 10px;
+  padding-bottom: 70px;
   height: 250px;
 }
+.results {
+  overflow-x: scroll;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  height:fit-content;
+}
+
 .popular-false-ani {
   position: absolute;
   left: 90%;
@@ -63,4 +57,56 @@
   width: 10%;
   background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
   right: 0;
+}
+
+
+.popular-demo {
+  position: relative;
+  /* background-color:rgba(131, 131, 131, 0.534); */
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  margin-left:20px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 90%;
+}
+
+.popular-img-container {
+
+}
+.popular-img-container img {
+  width: 150px;
+  border-radius: 8px;
+}
+
+.popular-demo-name {
+  margin-top: 30px;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-weight: 700;
+  margin-left: 10px;
+  padding-bottom: 2px;
+}
+
+.popular-date {
+  margin-left: 10px;
+
+  font-size: 1em;
+  color: rgba(0,0,0,0.6);
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+.popular-rate{
+  border-radius: 50%;
+  border: solid #1c965a;
+  width: fit-content;
+  height: fit-content;
+  padding:10px 4px 10px 4px;
+  position: absolute;
+  bottom: 20%;
+  background-color:#081c22 ;
+  color: whitesmoke;
+  font-weight: 700;
+  font-size: 90%;
 }
