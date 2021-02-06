@@ -1,42 +1,26 @@
 .trailers-container {
   width: 90%;
   margin: auto;
-  height: 50vh;
-  margin-top: 2%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: fit-content;
+  background-image: url('https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces/57vVjteucIF3bGnZj6PmaoJRScw.jpg');
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
-
 .trailers-sub-container {
+  height: 380px;
+  background-color: #032541bb;
+  margin: auto;
   width: 100%;
   position: relative;
-  height: 100%;
-}
-.head {
-  position: relative;
-}
-.trailers-txt, .options {
-  margin-left: 50px;
-}
-.options{
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 2px;
-}
-.options span {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .trailers-txt {
+  margin-left: 50px;
   font-size: 1.2em;
+  color: white;
   font-weight: 600;
-}
-.results {
-  overflow-x: scroll;
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  display: flex;
-  height:100%;
 }
 
 .trailers-demo {
@@ -44,22 +28,22 @@
   background-color:rgba(131, 131, 131, 0.534);
   border-radius: 10px;
   margin-left:10px;
-  padding: 100px;
-  padding-right: 250px;
-}
-.results-container {
-  position: relative;
-  margin-top: 10px;
-  height: 250px;
+  color: rgba(0, 0, 0, 0.529);
+  padding: 0px 140px 0px 140px ;
 }
 .trailers-false-ani {
   position: absolute;
   left: 90%;
   opacity: 1;
   transition: opacity linear 0.3s;
-  top: 10%;
+  top: 0;
   height: 100%;
   width: 10%;
   background-image: linear-gradient(to right, rgba(255,255,255,0) 0%,#fff 100%);
   right: 0;
+}
+
+
+.trailers-container .results-container,.trailers-container .results {
+  height: 190px;
 }

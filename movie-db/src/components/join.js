@@ -9,7 +9,7 @@ export default class Join extends Component {
         <div className="join-title">Join Today</div>
         <div className="join-inst">
           <span className="join-content">
-            <p>Get access to maintain your own custom personal lists, track what you've seen and search and filter for what to watch next—regardless if it's in theatres, on TV or available on popular streaming services like .</p>
+            <p>Get access to maintain your own <em>custom personal lists</em>, <em>track what you've seen</em> and search and filter for <em>what to watch next</em> —regardless if it's in theatres, on TV or available on popular streaming services like .</p>
             <button className="signup-btn">Sign Up</button>
           </span>
           <span className="join-features">

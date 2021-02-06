@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+.inThs,.onTv,.week,.day {
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.7s linear;
+  transition: color 0.7s linear;
+  border-radius: 10px;
+  padding: 0 10px 0 10px ;
+}
+
+.onTv,.day {
+  margin-right: 6px;
+}
+
+.head {
+  position: relative;
+  padding-top: 50px;
+
+}
+.options{
+  margin-left: 50px;
+  border-radius: 10px;
+}
+
+.results-container {
+  position: relative;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  overflow-x: scroll;
+  height:290px;
+}
+.results {
+  position: absolute;
+  width: 100%;
+  display: flex;
+}
+
+
+.img-container img {
+  width: 150px;
+  border-radius: 8px;
+}
+.img-container {
+  position: relative;
+}
+
+
+.demo-name {
+  margin-top: 30px;
+  font-size: 1.15em;
+  margin-left: 10px;
+  padding-bottom: 2px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.date {
+  margin-left: 10px;
+  font-size: 1em;
+  color: rgba(0,0,0,0.6);
+}
+
+.rate-circle {
+  transition: 0.5s all;
+  transform: rotate(-90deg);
+}
+
+.rate {
+  background-color:#081c22;
+  border-radius: 42px;
+}
+
+
+.popular-demo,.trending-demo {
+  position: relative;
+  /* background-color:rgba(131, 131, 131, 0.534); */
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  margin-left:20px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 90%;
+}
+
+
+.pers{
+  position: absolute;
+  color: rgba(245, 245, 245, 0.898);
+  transform: translate(30%,70%);
+  font-size: 80%;
+  font-family: 'Jost', sans-serif;
+}
+
+
+.rate-wrapper {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 90%;
+}
+
+
+.popular-container .onTv , .trending-container .day {
+  background-color: #032541;
+  color: #0ad6c2;
+}
+
+.popular-container .options, .trending-container .options{
+  border: 1px solid #032541;
+  color: #032541;
+}
+
+.popular-container .inThs, .trending-container .week{
+  color: #032541;
+}
+
+.trailers-container .onTv {
+  background-color: #0ad6c2;
+  color:  #032541;
+}
+
+.trailers-container .options{
+  border: 1px solid #032541;
+  color: #032541;
+}
+
+.trailers-container .inThs {
+  color: white;
+}
+
+
+.options span {
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8.5px;
+}
+
+.options {
+  padding: 4px 0px 4px 0px;
+}
