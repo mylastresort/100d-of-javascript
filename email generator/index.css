@@ -173,6 +173,9 @@ p{
 
 
 
-
+#expand {
+  transform: rotate(0deg);
+  transition: transform 1s;
+}
 
 
