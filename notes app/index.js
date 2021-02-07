@@ -1,8 +1,8 @@
-const section=document.querySelector(".notes-section");
-const add =document.getElementById('add');
-const typeArea=document.getElementById('typeArea')
-const iptcolor=document.getElementById('color')
-const iptsize=document.getElementById('select')
+const section = document.querySelector(".notes-section");
+const add = document.getElementById('add');
+const typeArea = document.getElementById('typeArea')
+const iptcolor = document.getElementById('color')
+const iptsize = document.getElementById('select')
 
 iptsize.onchange = _ => typeArea.style.fontSize = iptsize.value
 iptcolor.onchange = _ => typeArea.style.color = iptcolor.value
@@ -11,7 +11,7 @@ window.onload = _ => show(notes())
 
 
 let notes = _ => {
-  if(!localStorage.getItem('notes') || localStorage.getItem('notes')==="[]") return new Array()
+  if (!localStorage.getItem('notes') || localStorage.getItem('notes') === "[]") return new Array()
   else return JSON.parse(localStorage.getItem('notes'))
 }
 
@@ -53,6 +53,7 @@ function show(listOfNotes) {
 function deleteNote(_) {
   const noteIndex = Array.prototype.indexOf.call(_.parentNode.parentNode.childNodes, _.parentNode);
   let notesUpdated = notes();
-  localStorage.setItem('notes', JSON.stringify(notesUpdated.splice(noteIndex, 1)));
+  notesUpdated.splice(noteIndex, 1)
+  localStorage.setItem('notes', JSON.stringify(notesUpdated));
   _.parentNode.remove();
 }
