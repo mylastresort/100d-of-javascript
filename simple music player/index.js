@@ -88,7 +88,7 @@ function playSong(e) {
   }
   else{
     generate(e)
-  }  
+  }
 }
 function pausingPlaying() {
   if(!sound){
@@ -129,7 +129,7 @@ audio.onloadeddata=function(){
   min = min < 10 ? "0" + min : min;
   sec = sec < 10 ? "0" + sec : sec;
   songDuration.textContent=min+":"+sec;
-  
+
 }
 audio.ontimeupdate=function(){
   let left=Math.floor(audio.currentTime);

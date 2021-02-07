@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&display=swap');
+
 *{
   margin: 0;
   padding:0;
+  font-family: 'Archivo Narrow', sans-serif;
   box-sizing: border-box;
 }
 
@@ -8,7 +11,7 @@
 body{
   background-color: #7e00fc;
   background-image: linear-gradient(to right,#7e00fc,#442069);
-  
+
 }
 
 
@@ -91,12 +94,7 @@ img{
     width: 60%;
     border-radius: 10%;
 }
-#range{
-  position: absolute;
-  top: 65%;
-  left: 7%;
-  width: 20vw;
-}
+
 #controls{
   background-color: #7efc00 ;
   border-radius: 45%;
@@ -118,7 +116,7 @@ img{
 
 .repeat-btns{
   margin:6%;
-  
+
 }
 button{
   border-radius: 50%;
@@ -128,3 +126,47 @@ button{
   font-size: 100%;
   box-shadow: gray 2px 2px 15px;
 }
+
+
+audio{
+  position: absolute;
+  top: 64%;
+  left: 10%;
+  width: 20vw;
+  margin: auto;
+  outline: none;
+  filter: sepia(20%) saturate(70%) grayscale(1) contrast(200%) invert(200%);
+}
+
+/* audio::-webkit-media-controls-panel */
+
+audio::-webkit-media-text-track-region-container.scrolling {
+  display: none;
+}
+audio::-webkit-media-controls-mute-button{display: none;}
+
+audio::-webkit-media-controls-play-button{display: none;}
+
+audio::-webkit-media-controls-timeline-container{display: none;}
+
+audio::-webkit-media-controls-current-time-display{display: none;}
+
+audio::-webkit-media-controls-time-remaining-display{display: none;}
+
+audio::-webkit-media-controls-timeline
+
+audio::-webkit-media-controls-volume-slider-container{display: none;}
+
+audio::-webkit-media-controls-volume-slider{display: none;}
+
+audio::-webkit-media-controls-seek-back-button{display: none;}
+
+audio::-webkit-media-controls-seek-forward-button{display: none;}
+
+audio::-webkit-media-controls-fullscreen-button{display: none;}
+
+audio::-webkit-media-controls-rewind-button{display: none;}
+
+audio::-webkit-media-controls-return-to-realtime-button{display: none;}
+
+audio::-webkit-media-controls-toggle-closed-captions-button{display: none;}

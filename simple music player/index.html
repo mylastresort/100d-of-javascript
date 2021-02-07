@@ -11,9 +11,6 @@
 </head>
 
 <body>
-  <audio preload="metadata" src="" id="current-song"></audio>
-
-
   <section class="the-app">
     <i class="fas fa-bars"></i>
     <i onclick="favsSongs()" class="far fa-heart"></i>
@@ -27,7 +24,7 @@
       <span id="time-spent">00:00</span>
       <span id="songDuration" class="songDuration"></span>
     </div>
-    <input type="range" min=0 max="1000" name="" id="range">
+    <audio controls preload="metadata" src="" id="current-song"></audio>
     <div id="controls">
       <span id="prev"><i class="fas fa-backward"></i></span>
       <span id="playPause"><i class="fas fa-play"></i></span>
