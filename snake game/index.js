@@ -3,47 +3,46 @@ let context = canvas.getContext('2d')
 canvas.width = 700;
 canvas.height = 400;
 let snake = {
-  x: 15,
-  y: 15,
+  x: null,
+  y: null,
   width: 15,
   height: 15,
-  direction: 'right',
+  direction: null,
   size: new Array(),
-  speed: 100,      //increase the number to lower the speed
-  randomX: () => { return Math.floor(Math.random() * ((canvas.width - 20) / 15)) * 15 },
-  randomY: () => { return Math.floor(Math.random() * ((canvas.height - 20) / 15)) * 15 },
+  speed: 75,      //increase the number to lower the speed
+  randomX: _ => Math.floor(Math.random() * ((canvas.width - 20) / 15)) * 15,
+  randomY: _ => Math.floor(Math.random() * ((canvas.height - 20) / 15)) * 15,
   score: 0
 }
 let food = { x: 225, y: 225 }
-makeFood()
+
 
 
 window.onkeydown = _ => {
   if (_.code === 'ArrowRight') {
-    if (snake.direction === 'left') return false
-    else snake.direction = 'right'
+    if (snake.direction === 'left') return false;
+    else snake.direction = 'right';
   }
   if (_.code === 'ArrowLeft') {
-    if (snake.direction === 'right') return false
-    else snake.direction = 'left'
+    if (snake.direction === 'right') return false;
+    else snake.direction = 'left';
   }
   if (_.code === 'ArrowDown') {
-    if (snake.direction === 'up') return false
-    else snake.direction = 'down'
+    if (snake.direction === 'up') return false;
+    else snake.direction = 'down';
   }
   if (_.code === 'ArrowUp') {
-    if (snake.direction === 'down') return false
-    else snake.direction = 'up'
+    if (snake.direction === 'down') return false;
+    else snake.direction = 'up';
   }
 }
 
-setInterval(move, snake.speed);
 
 function check() {
   if (snake.x > canvas.width - 20
     || snake.y > canvas.height - 20
     || snake.x < 0
-    || snake.y < 0 ) restart()
+    || snake.y < 0) restart()
 }
 
 function makeFood() {
@@ -54,21 +53,20 @@ function makeFood() {
   } while (alreadyExist);
   snake.size.push([snake.x, snake.y])
 
-  context.beginPath();
-  context.fillStyle = '#0d7377'
-  context.fillRect(food.x, food.y, 9, 9)
-  context.closePath()
+  context.fillStyle = '#0d7377';
+  context.fillRect(food.x, food.y, 9, 9);
 }
 
 function restart() {
-  alert('failed');
   snake.x = 15;
-  snake.y = 15;
+  snake.y = 60;
   snake.direction = 'right'
   snake.size = new Array();
   context.clearRect(0, 0, canvas.width, canvas.height)
+  if (JSON.parse(localStorage.getItem('highest-score')) <= snake.score) { localStorage.setItem('highest-score', JSON.parse(snake.score)) }
   snake.score = 0;
   document.querySelector('#score').textContent = 'Score : 0'
+  document.querySelector('#highest-score').textContent = `Highest Score : ${JSON.parse(localStorage.getItem('highest-score'))}`
   makeFood()
 }
 
@@ -86,12 +84,15 @@ function move() {
 
   if (snake.x === food.x && food.y === snake.y) {
     document.querySelector('#score').textContent = `Score : ${snake.score += 1}`
+    if (JSON.parse(localStorage.getItem('highest-score')) <= snake.score) {
+      document.querySelector('#highest-score').textContent = `Highest Score : ${snake.score}`
+    }
     makeFood();
   } else {
-    for (const i of snake.size.slice(0,-1)) {
-      if(i[0] === snake.x && i[1] === snake.y) {
-      console.log('contradiction');
-      restart()
+    for (const i of snake.size.slice(0, -1)) {
+      if (i[0] === snake.x && i[1] === snake.y) {
+        console.log('contradiction');
+        restart()
       }
     }
   }
@@ -100,4 +101,9 @@ function move() {
     let last = snake.size.shift()
     context.clearRect(last[0], last[1], snake.width, snake.height)
   }
+}
+
+window.onload = _ => {
+  makeFood();
+  setInterval(move, snake.speed);
 }
