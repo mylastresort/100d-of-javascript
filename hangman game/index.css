@@ -1,40 +1,103 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: #363434;
-  padding-left: 15vw;
-  padding-top: 1vh;
+  max-width: 100vw;
+}
+.container {
+  background-color: rgb(255, 0, 0);
+
+}
+.app {
+  width: 20%;
+  float: left;
+  text-align: center;
+  margin-top: 40px;
 }
 
-canvas {
+.game-guide {
+  padding: 20px;
+  margin-top: 80px;
+  float: left;
+  width: 200px;
+  top: 10%;
+  left: -20%;
+  color: wheat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 30px;
+}
+ canvas {
   background-color: #5c5757;
   border-radius: 20px;
-
+  margin: auto;
 }
 
+.tracker {
+  float: right;
+  margin-top: 80px;
+  position: relative;
+  text-align: center;
+  width: 220px;
+  height: 500px;
+  bottom: 0;
+  font-size: 1.3rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.wrong-letters {
+  font-weight: 800;
+  color: chocolate;
+}
+
+.tracker p {
+  font-weight: 600;
+  line-height: 70px;
+  word-wrap: break-word;
+  text-align: center;
+  letter-spacing: 10px;
+  margin-top: 40%;
+  color: rgb(191, 37, 37);
+}
+
+#ins {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.words-container {
+  width: 70vw;
+  min-width: 1000px;
+  background-color:#5c575734;
+  height: 15vh;
+  position: relative;
+  border-radius: 5px;
+}
 #words {
   position: absolute;
   width: 100%;
-  top: 10%;
   text-align: center;
 }
+
+
 #letter {
   border-bottom: 5px rgba(245, 222, 179, 0.74) solid;
   font-size: 500%;
   margin-left: 2%;
   color: transparent;
   font-family: monospace;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select:none;
+  user-select:none;
+  -o-user-select:none;
 }
-.container {
-  position: absolute;
-  width: 70vw;
-  background-color:#5c575734;
-  height: 15vh;
-  position: relative;
-  border-radius: 5px;
-}
+
+
+
+
 
 /* theme : #efecec #62929a #5c5757 #363434 */

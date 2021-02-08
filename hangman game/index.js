@@ -1,8 +1,7 @@
-let hangmanTied = new Image();
+const hangmanTied = new Image();
 hangmanTied.src = 'https://www.gamestolearnenglish.com/games/hangman/res/mSprite.png';
-
-let hangmanItems = new Image();
-hangmanItems.src = 'https://www.gamestolearnenglish.com/games/hangman/res/mySprite.9.0.png'
+const hangmanItems = new Image();
+hangmanItems.src = 'https://www.gamestolearnenglish.com/games/hangman/res/mySprite.9.0.png';
 
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
@@ -24,14 +23,7 @@ const game = {
     [hangmanItems, 830, 0, 80, 150, canvas.width * 0.55, canvas.height * 0.12, 80, 150]
   ],
   counter: 0,
-  words: [
-    'hello',
-    'javascript',
-    'earth',
-    'april',
-    'give',
-    'luck'
-  ],
+  words: ['hello', 'javascript', 'earth', 'april', 'give', 'luck'],
   status: []
 }
 
@@ -43,41 +35,57 @@ window.onload = _ => {
   for (let i of chosenWord) {
     let letter = document.createElement('span');
     letter.id = 'letter';
-    letter.textContent = i;
+    letter.textContent = 's';
     document.getElementById('words').appendChild(letter);
   }
+  console.log(chosenWord);
 }
 
-document.onkeydown = _ => {
-  document.getElementById('ins').textContent = '';
-  for (let i = 0; i < chosenWord.length; i++) {
-    let e = document.querySelector('#words').children[i];
-    if (_.key === e.textContent && e.style.color !== 'black') {
-      console.log('1');
-      //search the letter in the word
-      chosenWordArayy.forEach((value, index) => {
-        if (value === _.key) {
-          document.querySelector('#words').children[index].style.color = 'black'
-        }
-      })
-      game.status.push(true);
-      return
-    } else if (_.key === e.textContent && e.style.color === 'black') {
-      console.log('2');
-      document.getElementById('ins').textContent = `you already unlocked this letter : ${_.key}`
-      return
-    } else if (_.key !== e.textContent) {
-      game.status.push(false);
+window.onkeydown = _ => {
+
+
+  if(!('qwertyuiopasdfghjklzxcvbnm'.split('').some(l=>l===_.key))) return;
+
+  if((document.getElementById('wrong-letters').textContent.split(' ')).some(l=>_.key === l) && game.counter > 10) {
+    document.getElementById('ins').textContent = `Be careful, this letter do not exist in this word, I have already memorized it for you.`;
+    return;
+  } else {
+    document.getElementById('ins').textContent = '';
+    for (let index in chosenWord) {
+      let i = chosenWord[index];
+      let e = document.querySelector('#words').children[index];
+      if (_.key === i && e.style.color !== 'black') {
+        //search the letter in the word
+        chosenWordArayy.forEach((value, index) => {
+          if (value === _.key) {
+            document.querySelector('#words').children[index].textContent = value;
+            document.querySelector('#words').children[index].style.color = 'black'
+          }
+        })
+        game.status.push(true);
+        return
+      } else if (_.key === i && e.style.color === 'black') {
+        document.getElementById('ins').textContent = `you already unlocked this letter : ${_.key}`
+        return
+      } else if (_.key !== i) {
+        game.status.push(false);
+      }
     }
+    if (game.status.some(e => e === false)) {
+      let anime = game.animeFails[game.counter];
+      context.drawImage(anime[0], anime[1], anime[2], anime[3], anime[4], anime[5], anime[6], anime[7], anime[8]);
+      game.counter++;
+    }
+    if (game.counter >= 10) {
+      // game over
+      document.querySelector('#words').innerHTML = 'GAME OVER!!'
+      document.getElementById('ins').textContent = `The word was ${chosenWord}  ¯\\_(ツ)_/¯`
+    }
+
+
+    if(!chosenWordArayy.some(l=>_.key === l)) {document.getElementById('wrong-letters').textContent += ` ${_.key}`}
   }
-  if (game.status.some(e => e === false)) {
-    let anime = game.animeFails[game.counter];
-    context.drawImage(anime[0], anime[1], anime[2], anime[3], anime[4], anime[5], anime[6], anime[7], anime[8]);
-    game.counter++;
-  }
-  if (game.counter >= 10) {
-    console.log('3');
-    // game over
-    document.querySelector('#words').innerHTML = 'GAME OVER!!'
-  }
+
+
+
 }

@@ -7,12 +7,26 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <canvas></canvas>
   <div class="container">
-    <div id="words">
+
+    <div class="game-guide">Try to guess what the proposed word is, your tip is the number of letters. With each wrong letter, is painted a part of the gallows below. The game ends either with the correct word or with the end of the filling of the gallows.</div>
+
+    <div class="app">
+      <canvas></canvas>
+      <div class="words-container">
+        <div id="words" >
+        </div>
+      </div>
     </div>
+
+    <div class="tracker">
+      <div class="wrong-letters">WRONG LETTERS</div>
+      <p id="wrong-letters"></p>
+      <h4 id="ins"></h4>
+    </div>
+
   </div>
-  <h3 id="ins"></h3>
+
   <script src="index.js"></script>
 </body>
 </html>
