@@ -10,7 +10,7 @@
   <div id="init">
     <div class="choise" id="choise">
       <p id="text">You are</p>
-      <section id="choisesSection1">
+      <section id="choisesSection1" onclick="boxOne()">
         <button id="choises">X</button>
         <p id="choises">Or</p>
         <button id="choises">O</button>
@@ -18,7 +18,7 @@
     </div>
     <div class="chosentemplate" id="chosentemplate">
       <p id="text">You want</p>
-      <section id="choisesSection2">
+      <section id="choisesSection2" onclick="boxTwo()">
         <select class="grids" id="Gridvalues">
           <option value="3">3</option>
           <option value="5">5</option>
@@ -41,5 +41,31 @@
     </div>
   </div>
   <script src="index.js"></script>
+  <script>
+
+    function boxOne() {
+      if (_.target.localName === 'button') {
+        if (_.target.textContent === 'X') game.turn = 1;
+        if (_.target.textContent === 'O') game.turn = 0;
+        document.querySelectorAll('.choise')[0].remove();
+        document.getElementById('chosentemplate').style.display = 'block';
+      }
+    }
+    function boxTwo() {
+      let grids = document.querySelector('.grids');
+      let required = document.querySelector('.required');
+      game.level.grids = parseInt(grids[grids.selectedIndex].textContent);
+      game.level.required = parseInt(required[required.selectedIndex].textContent)
+      if (_.target.localName === 'button' && _.target.textContent === 'Start!') {
+        document.getElementById('init').remove()
+        let app = document.createElement('div')
+        app.setAttribute('class', 'app')
+        app.setAttribute('id', 'app')
+        document.body.appendChild(app)
+        game.inputs.generateMemory()
+        game.level.generate()
+      }
+    }
+  </script>
 </body>
 </html>
