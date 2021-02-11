@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tic-tac-toe game</title>
-  <link rel="stylesheet" href="index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>tic-tac-toe game</title>
+	<link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-  <div id="init">
+	<!-- <div id="init">
     <div class="choise" id="choise">
       <p id="text">You are</p>
-      <section id="choisesSection1" onclick="boxOne()">
+      <section id="choisesSection1">
         <button id="choises">X</button>
         <p id="choises">Or</p>
         <button id="choises">O</button>
@@ -39,33 +41,51 @@
         <button id="choises">Start!</button>
       </section>
     </div>
-  </div>
-  <script src="index.js"></script>
-  <script>
-
-    function boxOne() {
-      if (_.target.localName === 'button') {
-        if (_.target.textContent === 'X') game.turn = 1;
-        if (_.target.textContent === 'O') game.turn = 0;
-        document.querySelectorAll('.choise')[0].remove();
-        document.getElementById('chosentemplate').style.display = 'block';
-      }
-    }
-    function boxTwo() {
-      let grids = document.querySelector('.grids');
-      let required = document.querySelector('.required');
-      game.level.grids = parseInt(grids[grids.selectedIndex].textContent);
-      game.level.required = parseInt(required[required.selectedIndex].textContent)
-      if (_.target.localName === 'button' && _.target.textContent === 'Start!') {
-        document.getElementById('init').remove()
-        let app = document.createElement('div')
-        app.setAttribute('class', 'app')
-        app.setAttribute('id', 'app')
-        document.body.appendChild(app)
-        game.inputs.generateMemory()
-        game.level.generate()
-      }
-    }
-  </script>
+  </div> -->
+	<script>
+		// document.getElementById('choisesSection1').onclick = _ => {
+    //   if (_.target.localName === 'button') {
+    //     if (_.target.textContent === 'X') {
+    //       game.players.human = 'x';
+    //       game.players.bot = 'o';
+    //     }
+    //     if (_.target.textContent === 'O') {
+    //       game.players.human = 'o';
+    //       game.players.bot = 'x';
+    //     }
+    //     game.turn = 'human';
+    //     document.querySelectorAll('.choise')[0].remove();
+    //     document.getElementById('chosentemplate').style.display = 'block';
+    //   }
+    // }
+    // document.getElementById('choisesSection2').onclick = _ => {
+    //   let grids = document.querySelector('.grids');
+    //   let required = document.querySelector('.required');
+    //   game.level.grids = parseInt(grids[grids.selectedIndex].textContent);
+    //   game.level.required = parseInt(required[required.selectedIndex].textContent)
+    //   board = Array.apply(0,Array(Math.pow(game.level.grids,2)).map((_,index)=>index));
+    //   if (_.target.localName === 'button' && _.target.textContent === 'Start!') {
+    //     document.getElementById('init').remove()
+    //     let app = document.createElement('div')
+    //     app.setAttribute('class', 'app')
+    //     app.setAttribute('id', 'app')
+    //     document.body.appendChild(app)
+    //     game.inputs.generateMemory()
+    //     game.level.generate()
+    //   }
+    // }
+    // game.players.human = 'x';
+    // game.players.bot = 'o';
+    // game.turn = 'human';
+    // board = Array.apply(0,Array(Math.pow(game.level.grids,2)).map((_,index)=>index));
+    // let app = document.createElement('div')
+    // app.setAttribute('class', 'app')
+    // app.setAttribute('id', 'app')
+    // document.body.appendChild(app)
+    // game.inputs.generateMemory()
+    // game.level.generate()
+	</script>
+	<script src="game.js"></script>
 </body>
+
 </html>

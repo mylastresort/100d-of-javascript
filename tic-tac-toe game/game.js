@@ -1,10 +1,8 @@
 ////showing a message: i'll show no mercy, you're okay with that?
 const game = {
   turn: null,
-  xo: {
-    o: ['o0.png', 'o1.png', 'o2.png'],
-    x: ['x0.png', 'x1.png', 'x2.png']
-  },
+  players: { human: null, bot: null },
+  xo: { o: ['o0.png', 'o1.png', 'o2.png'], x: ['x0.png', 'x1.png', 'x2.png'] },
   inputs: {
     list: {
       lines: new Map(),
@@ -13,132 +11,79 @@ const game = {
       reverseR: new Map()
     },
     generateMemory() {
-      const diffrence = game.level.grids - game.level.required;
+      const grids = game.level.grids;
+      const required = game.level.required;
+      const diffrence = grids - required;
+      const lin = this.list.lines;
+      const col = this.list.colomuns;
+      const rel = this.list.reverseL;
+      const rer = this.list.reverseR;
       //diffrence: to maitain every line/column possible if the user changed the number required cases to win
-      for (let i = 0; i < game.level.grids; i++) {
-        this.list.lines.set(`L${i}`, new Map())
-        this.list.colomuns.set(`C${i}`, new Map())
+      for (let i = 0; i < grids; i++) {
+        lin.set(`L${i}`, new Map())
+        col.set(`C${i}`, new Map())
       }
       for (let i = 0; i < diffrence + 1; i++) {
-        for (let p = 0; p < game.level.grids; p++) {
-          this.list.lines.get(`L${p}`).set(i, [])
-          this.list.colomuns.get(`C${p}`).set(i, [])
+        for (let p = 0; p < grids; p++) {
+          lin.get(`L${p}`).set(i, Array.apply(0, Array(required)).map((_, index) => index + i + (p * grids)))
+          col.get(`C${p}`).set(i, Array.apply(0, Array(required)).map((_, index) => (grids * (index + i)) + p))
         }
       }
-      this.list.reverseL.set(`Rl0`, new Map())
-      this.list.reverseR.set(`Rr0`, new Map())
+      rel.set(`Rl0`, new Map())
+      rer.set(`Rr0`, new Map())
       for (let i = 0; i < (diffrence) * 2; i++) {
-        this.list.reverseL.set(`Rl${i + 1}`, new Map())
-        this.list.reverseR.set(`Rr${i + 1}`, new Map())
+        rel.set(`Rl${i + 1}`, new Map())
+        rer.set(`Rr${i + 1}`, new Map())
       }
       for (let i = 0; i < diffrence + 1; i++) {
-        this.list.reverseL.get(`Rl0`).set(i, [])
-        this.list.reverseR.get(`Rr0`).set(i, [])
+        rel.get(`Rl0`).set(i, Array.apply(0, Array(required)).map((_, index) => ((i + index) * grids) + i + index))
+        rer.get(`Rr0`).set(i, Array.apply(0, Array(required)).map((_, index) => ((i + index) * grids) + (grids - 1) - (i + index)))
       }
-      let counter = game.level.grids - game.level.required
+      let counter = grids - required
       for (let i = 0; i < diffrence; i++) {
         for (let p = 0; p < counter; p++) {
-          this.list.reverseL.get(`Rl${i + 1}`).set(p, [])
-          this.list.reverseR.get(`Rr${i + 1}`).set(p, [])
+          rel.get(`Rl${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + index) * grids) + p + index + (i + 1)))
+          rer.get(`Rr${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + index) * grids) + (grids - 1) - (p + index + (i + 1))))
         }
         counter--;
       }
-      counter = game.level.grids - game.level.required
+      counter = grids - required
       for (let i = diffrence; i < diffrence * 2; i++) {
         for (let p = 0; p < counter; p++) {
-          this.list.reverseL.get(`Rl${i + 1}`).set(p, [])
-          this.list.reverseR.get(`Rr${i + 1}`).set(p, [])
+          rel.get(`Rl${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + i + 1 - diffrence + index) * grids) + (p + index)))
+          rer.get(`Rr${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + i + 1 - diffrence + index) * grids) + (grids - 1) - (p + index)))
         }
         counter--;
       }
     },
     play(element) {
-      if (element.children.length > 0) return false;
       const img = document.createElement('img');
-      let player = null;
-      if (!!game.turn) {
-        player = 'x';
-        game.turn = 0;
-        img.setAttribute('src', Object.values(game.xo)[1][Math.floor(Math.random() * 3)])
-      } else {
-        player = 'o';
-        game.turn = 1;
-        img.setAttribute('src', Object.values(game.xo)[0][Math.floor(Math.random() * 3)])
-      }
-      const id = element.getAttribute('case-key');
+      let player = game.players[game.turn];
+      if (game.turn === 'human') game.turn = 'bot';
+      else game.turn = 'human';
+      img.setAttribute('src', game.xo[player][Math.floor(Math.random() * 3)])
+      img.setAttribute('alt', player)
       element.appendChild(img);
-      const colomun = id.split('-')[0]
-      const line = id.split('-')[1]
-      const Rel = id.split('-')[2]
-      const Rer = id.split('-')[3]
-      const nColomun = parseInt(colomun[1])
-      const nLine = parseInt(line[1])
-      const nRel = parseInt(Rel[4])
-      const nRer = parseInt(Rer[4])
-      const lineRel = Rel.slice(0, 3)
-      const lineRer = Rer.slice(0, 3)
-      ///assuming that this input is the last element on a line (line:lines i made on inputs object)
-      //get the start case possible on inputs objects (in case for lines:we grab it from the colomun) and it must not be negative
-      let key = nColomun - game.level.required + 1
-      //for Lines
-      if (key < 0) key = 0;
-      //pushing the input starting from line 'key' on inputs
-      ///example:if the nColomun is C2 and the required is 3 then the start is C0, the end is C[nColomun]
-      for (let i = key; i < nColomun + 1; i++) {
-        if (this.list.lines.get(line).get(i) !== undefined) {
-          this.list.lines.get(line).get(i).push(player)
-        }
-      }
-      //////same for Colomuns
-      key = nLine - game.level.required + 1
-      if (key < 0) key = 0;
-      //pushing the input starting from line 'key' on inputs
-      for (let i = key; i < nLine + 1; i++) {
-        if (this.list.colomuns.get(colomun).get(i) !== undefined) {
-          this.list.colomuns.get(colomun).get(i).push(player)
-        }
-      }
-      //////for reversed lines (leftside)
-      if (Rel !== 'no') {
-        key = nRel - game.level.required + 1
-        if (key < 0) key = 0;
-        //pushing the input starting from line 'key' on inputs
-        for (let i = key; i < nRel + 1; i++) {
-          if (this.list.reverseL.get(lineRel).get(i) !== undefined) {
-            this.list.reverseL.get(lineRel).get(i).push(player)
-          }
-        }
-      }
-      ///////for reversed lines (rightside)
-      if (Rer !== 'no') {
-        key = nRer - game.level.required + 1
-        if (key < 0) key = 0;
-        //pushing the input starting from line 'key' on inputs
-        for (let i = key; i < nRer + 1; i++) {
-          if (this.list.reverseR.get(lineRer).get(i) !== undefined) {
-            this.list.reverseR.get(lineRer).get(i).push(player)
-          }
-        }
-      }
-      setTimeout(() => {
-        let checking = this.check()
-        for (let i in this.list) {
-          checking.next().value.forEach((e, line) => {
-            e.forEach((e, group) => {
-              if (e.length === game.level.required) {
-                if (e.every(e => e == 'x')) {
-                  alert(`the X player won the game with line ${group} in ${line}`)
-                }
-                if (e.length === game.level.required) {
-                  if (e.every(e => e == 'o')) {
-                    alert(`the O player won the game with line ${group} in ${line}`)
-                  }
-                }
-              }
-            })
+      const caseIndex = parseInt(element.getAttribute('id'));
+      let checkin = this.check();
+      for (let i = 0; i < 4; i++) {
+        checkin.next().value.forEach((e, line) => {
+          e.forEach((groupsArray, group) => {
+            e.set(group, groupsArray.map(_ => { if (_ == caseIndex) return player; else return _; }))
           })
-        }
-      }, 50);
+        })
+      }
+      board[caseIndex] = player;
+      let storeforai = checkAi();
+      for (let i = 0; i < 4; i++) {
+        storeforai.next().value.forEach((e, line) => {
+          e.forEach((groupsArray, group) => {
+            if (groupsArray.some(d => d.index == caseIndex)) {
+              e.set(group, groupsArray.map(_ => { if (caseIndex == _.index) { _.algo = player; return _; } else return _; }))
+            }
+          })
+        })
+      }
     },
     *check() {
       yield this.list.colomuns;
@@ -146,54 +91,289 @@ const game = {
       yield this.list.reverseL;
       yield this.list.reverseR;
     },
+    test(data) {
+      let checking = data;
+      let winner = null;
+      for (let i in this.list) {
+        checking.next().value.forEach((e, line) => {
+          e.forEach((groupsArray, group) => {
+            if (groupsArray.every(usrIpt => usrIpt == 'x')) {
+              // console.warn(`the X player won the game with line ${group} in ${line}`)
+              if (game.players.human == 'x') winner = 'hu'
+              else winner = 'ai'
+            }
+            if (groupsArray.every(usrIpt => usrIpt == 'o')) {
+              // console.warn(`the O player won the game with line ${group} in ${line}`)
+              if (game.players.human == 'o') winner = 'hu'
+              else winner = 'ai';
+            }
+          })
+        })
+        if (!!winner) return winner;
+      }
+    }
   },
   level: {
     grids: null,
-    required: null,       //the grids must NOT be even otherwise some reversed lines will be missed while generating
+    required: null,
+    //the grids must NOT be even otherwise some reversed lines will be missed while generating
     generate() {
-      let reversed = new Map()
-      for (let i = 0; i < this.grids; i++) reversed.set(`L${i}`, new Array());
-      const diffrence = this.grids - this.required + 1;
       let deadline = 0;
       while (deadline < Math.pow(this.grids, 2)) {
-        let case_key = new Array();       //lines,colomuns,left reversed lines
-        let c = `C${deadline % this.grids}`;
-        let l = `L${Math.floor(deadline / this.grids)}`;
-        case_key.push(c)
-        case_key.push(l)
-        c = parseInt(c.slice(1))
-        l = parseInt(l.slice(1))
-        if (c >= l && c - l < diffrence) {
-          rl = `Rl${c - l}'${l}`;
-        } else if (c < l && l - c < diffrence) {
-          rl = `Rl${l - c + diffrence - 1}'${c}`;
-        } else {
-          rl = 'no'
-        }
-        reversed.get(`L${l}`).push(rl.slice(2))
-        case_key.push(rl)
-        let result = case_key.join('-');
         let element = document.createElement('span')
-        element.setAttribute('case-key', result)
+        element.setAttribute('id', deadline)
         element.classList = 'case'
-        element.setAttribute('onclick', 'game.inputs.play(this)')
+        element.setAttribute('onclick', 'move(this)')
         document.body.querySelector('.app').appendChild(element)
         deadline++;
       }
-      ///for rr im gonna add the reversed arrays on the rr Map
-      reversed.forEach(e => e.reverse())
-      let counter = 0;
-      document.querySelectorAll('.case').forEach(e => {
-        let result = e.getAttribute('case-key');
-        let index = result.slice(4)[0]
-        let rr = reversed.get(`L${index}`)[counter]
-        rr === '' ? result += '-no' : result += `-Rr${rr}`;
-        e.setAttribute('case-key', result)
-        counter = (this.grids - 1 === counter) ? 0 : counter + 1;
-      })
       document.getElementById('app').style.gridTemplateColumns = `repeat(${this.grids},1fr)`
       document.getElementById('app').style.gridTemplateRows = `repeat(${this.grids},1fr)`
       // document.querySelectorAll('.case').forEach(e=>e.textContent=e.getAttribute('case-key'))
     }
   }
+}
+
+
+game.players.human = 'x';
+game.players.bot = 'o';
+game.level.grids = 3;
+game.level.required = 3;
+game.turn = 'human';
+var board = Array.apply(0, Array(Math.pow(game.level.grids, 2))).map((_, index) => index);
+let app = document.createElement('div')
+app.setAttribute('class', 'app')
+app.setAttribute('id', 'app')
+document.body.appendChild(app)
+game.inputs.generateMemory()
+game.level.generate()
+
+
+
+
+
+
+var newMap = {
+  lines: new Map(),
+  colomuns: new Map(),
+  reverseL: new Map(),
+  reverseR: new Map()
+}
+
+
+function generateAlgoMemory(d) {
+  const grids = game.level.grids;
+  const required = game.level.required;
+  const diffrence = grids - required;
+  const lin = newMap.lines;
+  const col = newMap.colomuns;
+  const rel = newMap.reverseL;
+  const rer = newMap.reverseR;
+  //diffrence: to maitain every line/column possible if the user changed the number required cases to win
+  for (let i = 0; i < grids; i++) {
+    lin.set(`L${i}`, new Map())
+    col.set(`C${i}`, new Map())
+  }
+  for (let i = 0; i < diffrence + 1; i++) {
+    for (let p = 0; p < grids; p++) {
+      lin.get(`L${p}`).set(i, Array.apply(0, Array(required)).map((_, index) => index + i + (p * grids)))
+      col.get(`C${p}`).set(i, Array.apply(0, Array(required)).map((_, index) => (grids * (index + i)) + p))
+    }
+  }
+  rel.set(`Rl0`, new Map())
+  rer.set(`Rr0`, new Map())
+  for (let i = 0; i < (diffrence) * 2; i++) {
+    rel.set(`Rl${i + 1}`, new Map())
+    rer.set(`Rr${i + 1}`, new Map())
+  }
+  for (let i = 0; i < diffrence + 1; i++) {
+    rel.get(`Rl0`).set(i, Array.apply(0, Array(required)).map((_, index) => ((i + index) * grids) + i + index))
+    rer.get(`Rr0`).set(i, Array.apply(0, Array(required)).map((_, index) => ((i + index) * grids) + (grids - 1) - (i + index)))
+  }
+  let counter = grids - required
+  for (let i = 0; i < diffrence; i++) {
+    for (let p = 0; p < counter; p++) {
+      rel.get(`Rl${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + index) * grids) + p + index + (i + 1)))
+      rer.get(`Rr${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + index) * grids) + (grids - 1) - (p + index + (i + 1))))
+    }
+    counter--;
+  }
+  counter = grids - required
+  for (let i = diffrence; i < diffrence * 2; i++) {
+    for (let p = 0; p < counter; p++) {
+      rel.get(`Rl${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + i + 1 - diffrence + index) * grids) + (p + index)))
+      rer.get(`Rr${i + 1}`).set(p, Array.apply(0, Array(required)).map((_, index) => ((p + i + 1 - diffrence + index) * grids) + (grids - 1) - (p + index)))
+    }
+    counter--;
+  }
+  for (let key in d) {
+    d[key].forEach((e, line) => {
+      e.forEach((groupsArray, group) => {
+        e.set(group, groupsArray.map(_ => ({ index: _, algo: 'empty' })))
+      })
+    })
+  }
+}
+
+generateAlgoMemory(newMap)
+
+
+function test(data) {
+  let checking = data;
+  let winner = null;
+  for (let i = 0; i < 4; i++) {
+    checking.next().value.forEach((e, line) => {
+      e.forEach((groupsArray, group) => {
+        if (groupsArray.every(usrIpt => usrIpt.algo == 'x')) {
+          // console.warn(`Algo test : the X player won the game with line ${group} in ${line}`)
+          if (game.players.human == 'x') winner = 'hu'; else winner = 'ai';
+        } else if (groupsArray.every(usrIpt => usrIpt.algo == 'o')) {
+          // console.warn(`Algo test : the O player won the game with line ${group} in ${line}`)
+          if (game.players.human == 'o') winner = 'hu'; else winner = 'ai';
+        }
+      })
+    })
+    if (winner) return winner;
+  }
+  return winner
+}
+
+function* checkAi() {
+  yield newMap.colomuns;
+  yield newMap.lines;
+  yield newMap.reverseL;
+  yield newMap.reverseR;
+}
+var iter = 0;
+var round = 0;
+var lastInpt = board.length - 1
+
+
+function reset() {
+  round = 0;
+  var board = Array.apply(0, Array(Math.pow(game.level.grids, 2))).map((_, index) => index);
+
+}
+
+//available spots
+function avail(reboard) {
+  return reboard.filter(s => s != "x" && s != "o");
+}
+
+
+function move(element) {
+  if (element.children.length > 0) return false;
+  game.inputs.play(element)
+  round++;
+  //fill the index of the case with x or o
+  if (game.inputs.test(game.inputs.check()) == 'hu') {
+    alert("YOU WIN");
+    return;
+  } else if (round > lastInpt) {
+    alert("TIE");
+    return;
+  } else {
+    round++;
+    //call the minimax function
+    var { index, score } = minimax(board, game.players.bot);
+    // console.log(index, score);
+    board[index] = game.players.bot;
+    game.inputs.play(document.getElementById(index))
+    if (game.inputs.test(game.inputs.check()) == 'ai') {
+      alert("YOU LOSE");
+      return;
+    } else if (round === 0) {
+      alert("tie");
+      return;
+    }
+  }
+}
+
+
+function findMatch(element, replace, data) {
+  let checking = data;
+  for (let i = 0; i < 4; i++) {
+    checking.next().value.forEach((e, line) => {
+      e.forEach((groupsArray, group) => {
+        if (typeof replace == 'string') {
+          if (groupsArray.some(d => d.index == element)) {
+            e.set(group, groupsArray.map(_ => { if (element == _.index) { _.algo = replace; return _; } else return _; }))
+          }
+        } else if (typeof replace == 'number') {
+          if (groupsArray.some(d => d.index == element)) {
+            e.set(group, groupsArray.map(_ => { if (element == _.index) { _.algo = 'empty'; return _; } else return _; }))
+          }
+        }
+      })
+    })
+  }
+}
+
+
+function minimax(reboard, player) {
+  iter++;
+  let availSpots = avail(reboard);
+  //return a value if a terminal state is found (+10, 0, -10)
+  if (test(checkAi()) == 'hu') return { score: -10 };
+  else if (test(checkAi()) == 'ai') return { score: 10 };
+  else if (availSpots.length === 0) return { score: 0 };
+  var moves = [];
+  //go through available spots on the board
+  for (var i = 0; i < availSpots.length; i++) {
+    var move = {};
+    move.index = reboard[availSpots[i]];
+    // making a copy of this one by the one od the above: reboard[availSpots[i]] = player;
+    let replacewithplayer = checkAi();
+    for (let z in newMap) {
+      replacewithplayer.next().value.forEach((e, line) => {
+        e.forEach((groupsArray, group) => {
+          if (groupsArray.some(d => d.index == availSpots[i])) {
+            e.set(group, groupsArray.map(_ => { if (availSpots[i] == _.index) { _.algo = player; return _; } else return _; }))
+          }
+        })
+      })
+    }
+    reboard[availSpots[i]] = player;
+    //call the minimax function on each available spot (recursion)
+    if (player == game.players.bot) {
+      var g = minimax(reboard, game.players.human);
+      move.score = g.score;
+    } else {
+      var g = minimax(reboard, game.players.bot);
+      move.score = g.score;
+    }
+    // replacing this one with the above : reboard[availSpots[i]] = move.index;
+    let replacewithnum = checkAi();
+    for (let z in newMap) {
+      replacewithnum.next().value.forEach((e, line) => {
+        e.forEach((groupsArray, group) => {
+          if (groupsArray.some(d => d.index == availSpots[i])) {
+            e.set(group, groupsArray.map(_ => { if (availSpots[i] == _.index) { _.algo = 'empty'; return _; } else return _; }))
+          }
+        })
+      })
+    }
+    reboard[availSpots[i]] = move.index;
+    moves.push(move);
+  }
+  //return the best value
+  var bestMove;
+  if (player === game.players.bot) {
+    var bestScore = -Infinity;
+    for (var q = 0; q < moves.length; q++) {
+      if (moves[q].score > bestScore) {
+        bestScore = moves[q].score;
+        bestMove = q;
+      }
+    }
+  } else {
+    var bestScore = Infinity;
+    for (var q = 0; q < moves.length; q++) {
+      if (moves[q].score < bestScore) {
+        bestScore = moves[q].score;
+        bestMove = q;
+      }
+    }
+  }
+  return moves[bestMove];
 }
