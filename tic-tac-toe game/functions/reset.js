@@ -6,8 +6,8 @@ function reset() {
   app.setAttribute('class', 'app')
   app.setAttribute('id', 'app')
   document.body.appendChild(app)
-  game.inputs.generateMemory(game.level.grids, game.level.required, game.inputs.list.lines, game.inputs.list.colomuns, game.inputs.list.reverseL, game.inputs.list.reverseR, false)
-  game.inputs.generateMemory(game.level.grids, game.level.required, game.algo.lines, game.algo.colomuns, game.algo.reverseL, game.algo.reverseR, true)
+  generateMemory(game.level.grids, game.level.required, game.inputs.list.lines, game.inputs.list.colomuns, game.inputs.list.reverseL, game.inputs.list.reverseR, false)
+  generateMemory(game.level.grids, game.level.required, game.algo.list.lines, game.algo.list.colomuns, game.algo.list.reverseL, game.algo.list.reverseR, true)
   let deadline = 0;
   while (deadline < Math.pow(game.level.grids, 2)) {
     let element = document.createElement('span')

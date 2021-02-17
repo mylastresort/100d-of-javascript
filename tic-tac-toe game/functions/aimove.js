@@ -1,10 +1,10 @@
 function makeAIMove() {
   if (!!bringWin() || bringWin() === 0) {
     // console.log('taking a win!!');
-    var move = bringWin()
+    var move = bringWin();
   } else if (!!avoidLoss() || avoidLoss() === 0) {
     // console.log('avoiding a loss!!');
-    var move = avoidLoss()
+    var move = avoidLoss();
   } else {
     start = new Date() / 1000;
     // console.log('implementing the algo!!');
@@ -14,14 +14,16 @@ function makeAIMove() {
   }
   // console.log(move);
   board[move] = game.players.bot;
+
   const img = document.createElement('img');
-  img.setAttribute('src', game.xo[game.players.bot][Math.floor(Math.random() * 3)])
-  img.setAttribute('alt', game.players[game.players.bot])
+  img.setAttribute('src', game.xo[game.players.bot][Math.floor(Math.random() * 3)]);
+  img.setAttribute('alt', game.players[game.players.bot]);
   document.getElementById(move).appendChild(img);
-  game.inputs.store(move, game.players.bot)
-  game.inputs.store(move, game.players.bot)
+
+  store(move, game.players.bot);
+
   choice = [];
   game.turn = 'human';
-  if (game.inputs.test(game.inputs.check()) == 'ai') setTimeout(_ => { alert("YOU LOSE") }, 50)
-  else if (round === 0) setTimeout(_ => { alert("tie") }, 50)
+  if (firstCheck(game.inputs.check()) == 'ai') setTimeout(_ => { alert("YOU LOSE") }, 50);
+  else if (round === 0) setTimeout(_ => { alert("tie") }, 50);
 }

@@ -21,9 +21,9 @@ function minimax(reboard, depth, alpha, beta, isMaximazing) {
     for (var i = 0; i < availableMoves.length; i++) {
       move = availableMoves[i];
       possible_game = getNewBoard(move, reboard);
-      findMatch(checkAi(), move, player)
+      findMatch(game.algo.checkAi(), move, player)
       result = minimax(possible_game, depth, alpha, beta, false);
-      findMatch(checkAi(), move, 'empty')
+      findMatch(game.algo.checkAi(), move, 'empty')
       reboard = undoMove(reboard, move);
       if (result > alpha) {
         alpha = result;
@@ -36,9 +36,9 @@ function minimax(reboard, depth, alpha, beta, isMaximazing) {
     for (var i = 0; i < availableMoves.length; i++) {
       move = availableMoves[i];
       possible_game = getNewBoard(move, reboard);
-      findMatch(checkAi(), move, player)
+      findMatch(game.algo.checkAi(), move, player)
       result = minimax(possible_game, depth, alpha, beta, true);
-      findMatch(checkAi(), move, 'empty')
+      findMatch(game.algo.checkAi(), move, 'empty')
       reboard = undoMove(reboard, move);
       if (result < beta) {
         beta = result;

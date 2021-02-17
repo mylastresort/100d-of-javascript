@@ -1,7 +1,7 @@
 function avoidLoss() {
   let checking = game.inputs.check();
   let loss = null;
-  for (let i in game.inputs.list) {
+  for (let z = 0; z < 4; z++) {
     checking.next().value.forEach((e, line) => {
       e.forEach((groupsArray, group) => {
         if (!groupsArray.some(_ => _ === game.players.bot)) {

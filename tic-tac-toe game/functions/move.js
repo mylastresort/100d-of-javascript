@@ -5,9 +5,9 @@ function move(element) {
   img.setAttribute('src', game.xo[game.players.human][Math.floor(Math.random() * 3)])
   img.setAttribute('alt', game.players[game.players.human])
   document.getElementById(parseInt(element.id)).appendChild(img);
-  game.inputs.store(parseInt(element.id), game.players.human)
+  store(parseInt(element.id), game.players.human)
   round++;
-  if (game.inputs.test(game.inputs.check()) == 'hu') {
+  if (firstCheck(game.inputs.check()) == 'hu') {
     setTimeout(_ => { alert("YOU WIN") }, 50)
     return;
   } else if (round > lastInpt) {
