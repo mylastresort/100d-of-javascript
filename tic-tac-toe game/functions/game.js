@@ -1,4 +1,3 @@
-////showing a message: i'll show no mercy, you're okay with that?
 const game = {
   xo: {
     o: ['./png/o0.png', './png/o1.png', './png/o2.png'],

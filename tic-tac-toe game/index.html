@@ -2,14 +2,29 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>tic-tac-toe game</title>
-	<link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe Game</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="game.js"></script>
+  <script src="functions/avail.js"></script>
+  <script src="functions/avoidloss.js"></script>
+  <script src="functions/bringwin.js"></script>
+  <script src="functions/check.js"></script>
+  <script src="functions/checkwin.js"></script>
+  <script src="functions/findmatch.js"></script>
+  <script src="functions/getnewstate.js"></script>
+  <script src="functions/aimove.js"></script>
+  <script src="functions/move.js"></script>
+  <script src="functions/minimax.js"></script>
+  <script src="functions/test.js"></script>
+  <script src="functions/turn.js"></script>
+  <script src="functions/undomove.js"></script>
 </head>
 
 <body>
-	<!-- <div id="init">
+  <div id="init">
     <div class="choise" id="choise">
       <p id="text">You are</p>
       <section id="choisesSection1">
@@ -20,7 +35,7 @@
     </div>
     <div class="chosentemplate" id="chosentemplate">
       <p id="text">You want</p>
-      <section id="choisesSection2" onclick="boxTwo()">
+      <section id="choisesSection2">
         <select class="grids" id="Gridvalues">
           <option value="3">3</option>
           <option value="5">5</option>
@@ -30,62 +45,12 @@
         <p id="choises">Grids</p>
         <select class="required" id="Requiredvalues">
           <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
         </select>
         <p id="choises">Cases to win</p>
         <button id="choises">Start!</button>
       </section>
     </div>
-  </div> -->
-	<script>
-		// document.getElementById('choisesSection1').onclick = _ => {
-    //   if (_.target.localName === 'button') {
-    //     if (_.target.textContent === 'X') {
-    //       game.players.human = 'x';
-    //       game.players.bot = 'o';
-    //     }
-    //     if (_.target.textContent === 'O') {
-    //       game.players.human = 'o';
-    //       game.players.bot = 'x';
-    //     }
-    //     game.turn = 'human';
-    //     document.querySelectorAll('.choise')[0].remove();
-    //     document.getElementById('chosentemplate').style.display = 'block';
-    //   }
-    // }
-    // document.getElementById('choisesSection2').onclick = _ => {
-    //   let grids = document.querySelector('.grids');
-    //   let required = document.querySelector('.required');
-    //   game.level.grids = parseInt(grids[grids.selectedIndex].textContent);
-    //   game.level.required = parseInt(required[required.selectedIndex].textContent)
-    //   board = Array.apply(0,Array(Math.pow(game.level.grids,2)).map((_,index)=>index));
-    //   if (_.target.localName === 'button' && _.target.textContent === 'Start!') {
-    //     document.getElementById('init').remove()
-    //     let app = document.createElement('div')
-    //     app.setAttribute('class', 'app')
-    //     app.setAttribute('id', 'app')
-    //     document.body.appendChild(app)
-    //     game.inputs.generateMemory()
-    //     game.level.generate()
-    //   }
-    // }
-    // game.players.human = 'x';
-    // game.players.bot = 'o';
-    // game.turn = 'human';
-    // board = Array.apply(0,Array(Math.pow(game.level.grids,2)).map((_,index)=>index));
-    // let app = document.createElement('div')
-    // app.setAttribute('class', 'app')
-    // app.setAttribute('id', 'app')
-    // document.body.appendChild(app)
-    // game.inputs.generateMemory()
-    // game.level.generate()
-	</script>
-	<script src="game.js"></script>
+  </div>
+  <script src="functions/reset.js"></script>
+  <script src="functions/eventListeners.js"></script>
 </body>
-
-</html>
