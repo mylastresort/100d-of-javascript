@@ -1,0 +1,52 @@
+{
+  "name": "voting-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.2",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+		"start": "npm-run-all start:tailwind -l -p start:p:*",
+		"start:tailwind": "postcss ./src/assets/tailwind.src.css -o ./src/assets/tailwind.css",
+		"start:p:watch-tailwind": "onchange \"tailwind.config.js\" \"src/**/*.css\" -e \"./src/assets/tailwind.css\" -- npm run start:tailwind",
+		"start:p:react": "react-scripts start",
+		"build": "run-s build:** -l",
+		"build:a:tailwind": "cross-env NODE_ENV=production npm run start:tailwind",
+		"build:b:react": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.4",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-nested": "^5.0.3",
+    "tailwindcss": "^2.0.3"
+  }
+}
