@@ -12,15 +12,15 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-		"start": "npm-run-all start:tailwind -l -p start:p:*",
-		"start:tailwind": "postcss ./src/assets/tailwind.src.css -o ./src/assets/tailwind.css",
-		"start:p:watch-tailwind": "onchange \"tailwind.config.js\" \"src/**/*.css\" -e \"./src/assets/tailwind.css\" -- npm run start:tailwind",
-		"start:p:react": "react-scripts start",
-		"build": "run-s build:** -l",
-		"build:a:tailwind": "cross-env NODE_ENV=production npm run start:tailwind",
-		"build:b:react": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+    "start": "npm-run-all start:tailwind -l -p start:p:*",
+    "start:tailwind": "postcss ./src/assets/tailwind.src.css -o ./src/assets/tailwind.css",
+    "start:p:watch-tailwind": "onchange \"tailwind.config.js\" \"src/**/*.css\" -e \"./src/assets/tailwind.css\" -- npm run start:tailwind",
+    "start:p:react": "react-scripts start",
+    "build": "run-s build:** -l",
+    "build:a:tailwind": "cross-env NODE_ENV=production npm run start:tailwind",
+    "build:b:react": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
