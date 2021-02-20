@@ -59,11 +59,9 @@ img{
   border-radius: 15px;
   box-shadow: #160608 0px 0px 100px 0px;
 }
-#choises,#choisesSection1,#choisesSection2,#Gridvalues,#Requiredvalues{
+#choises,#choisesSection1,#choisesSection2,#Gridvalues,#Requiredvalues,#killalgo{
   display: flex;
-  /* margin-left: 30%; */
   margin: auto;
-  /* padding-left: 100px; */
   margin-top: 5%;
   padding: 10px;
   flex-direction: row;
@@ -84,6 +82,13 @@ input:hover,button:hover,select:hover{
 }
 #chosentemplate{
   display: none;
+}
+
+
+
+#killalgo {
+  width: 40px;
+  height: 40px;
 }
 
 /* theme colors: #482ff7  #2d6cdf #46c3db #f3f169*/

@@ -1,1 +1,4 @@
-const avail = reboard => reboard.map((_, index) => { if (_ === ' ') return index; else return _ }).filter(s => s != "x" && s != "o")
+const avail = reboard =>
+  reboard
+    .map((_, index) => (_ === " " ? index : _))
+    .filter(_ => _ != "x" && _ != "o");
