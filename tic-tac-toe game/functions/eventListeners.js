@@ -20,7 +20,16 @@ document.getElementById("choisesSection2").onclick = _ => {
   game.level.grids = parseInt(grids[grids.selectedIndex].textContent);
   game.level.required = parseInt(required[required.selectedIndex].textContent);
   killAlgo = parseFloat(document.getElementById("killalgo").value);
-  maxDepth = game.level.grids === 3 ? 9 : game.level.grids === 5 ? 6 : 5;
+  maxDepth =
+    game.level.grids === 3
+      ? 9
+      : game.level.grids === 5
+      ? 6
+      : game.level.grids === 7
+      ? 5
+      : game.level.grids === 9
+      ? 3
+      : 3;
   game.board = Array.apply(
     0,
     Array(Math.pow(game.level.grids, 2)).map((_, index) => index)
@@ -44,7 +53,7 @@ document.getElementById("Gridvalues").onchange = _ => {
       '<option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>';
   } else if (_.target.selectedIndex === 3) {
     options = "";
-    for (let i = 9 - 5; i < 9; i++)
+    for (let i = 9 - 5; i <= 9; i++)
       options += `<option value="${i}">${i}</option>`;
     document.getElementById("Requiredvalues").innerHTML = options;
   }

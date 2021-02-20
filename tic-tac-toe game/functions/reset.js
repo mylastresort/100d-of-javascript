@@ -24,6 +24,15 @@ function reset() {
     game.algo.list.reverseR,
     true
   );
+  generateMemory(
+    game.level.grids,
+    game.level.required,
+    sampleBoard.lines,
+    sampleBoard.colomuns,
+    sampleBoard.reverseL,
+    sampleBoard.reverseR,
+    false
+  );
   let deadline = 0;
   while (deadline < Math.pow(game.level.grids, 2)) {
     let element = document.createElement("span");

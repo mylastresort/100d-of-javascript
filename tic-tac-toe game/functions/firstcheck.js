@@ -6,11 +6,13 @@ function firstCheck(data) {
       e.forEach((groupsArray, group) => {
         if (groupsArray.every(usrIpt => usrIpt == 'x')) {
           // console.warn(`the X player won the game with line ${group} in ${line}`)
+          animateCases(line,group)
           if (game.players.human == 'x') winner = 'hu'
           else winner = 'ai'
         }
         if (groupsArray.every(usrIpt => usrIpt == 'o')) {
           // console.warn(`the O player won the game with line ${group} in ${line}`)
+          animateCases(line,group)
           if (game.players.human == 'o') winner = 'hu'
           else winner = 'ai';
         }

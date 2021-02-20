@@ -36,6 +36,8 @@ Demo : https://codepen.io/last-resort/full/rNWaEEE
 
 **Day 13 : Speed Typing Game.**
 
+Demo : https://jsitor.com/bbmLPXJV0
+
 **Day 14 : Tic-Tac-Toe Game.**
 
 Task : https://codepen.io/daajust/full/obVROB \

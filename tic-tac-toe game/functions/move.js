@@ -6,7 +6,9 @@ function move(element) {
   store(parseInt(element.id), game.players.human)
   round++;
   if (firstCheck(game.inputs.check()) == 'hu') {
-    setTimeout(_ => alert("YOU WIN"), 50)
+    setTimeout(_ => {
+      alert("YOU WIN")
+    }, 50)
     return;
   } else if (round > lastInpt) {
     setTimeout(_ => alert("TIE"), 50)

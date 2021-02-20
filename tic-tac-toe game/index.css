@@ -77,14 +77,37 @@ button,select,input{
 input:hover,button:hover,select:hover{
   cursor: pointer;
 }
-#choise{
-  /* display: none; */
-}
+
 #chosentemplate{
   display: none;
 }
 
-
+@keyframes flickerAnimation {
+  0%   { background-color: #46c3db; }
+  50%  { background-color: lawngreen; }
+  100% { background-color: #46c3db; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { background-color: #46c3db; }
+  50%  { background-color: lawngreen; }
+  100% { background-color: #46c3db; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { background-color: #46c3db; }
+  50%  { background-color: lawngreen; }
+  100% { background-color: #46c3db; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { background-color: #46c3db; }
+  50%  { background-color: lawngreen; }
+  100% { background-color: #46c3db; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 2s infinite;
+   -moz-animation: flickerAnimation 2s infinite;
+   -o-animation: flickerAnimation 2s infinite;
+    animation: flickerAnimation 2s infinite;
+}
 
 #killalgo {
   width: 40px;

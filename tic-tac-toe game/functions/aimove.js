@@ -28,7 +28,9 @@ function makeAIMove() {
   choice = [];
   game.turn = "human";
   if (firstCheck(game.inputs.check()) == "ai")
-    setTimeout(_ => { alert("YOU LOSE") }, 50);
+    setTimeout(_ => {
+      alert("YOU LOSE")
+    }, 50);
   else if (round === 0)
     setTimeout(_ => { alert("tie") }, 50);
 }

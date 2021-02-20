@@ -42,3 +42,10 @@ const game = {
     }
   }
 }
+
+const sampleBoard = {
+  lines: new Map(),
+  colomuns: new Map(),
+  reverseL: new Map(),
+  reverseR: new Map()
+}

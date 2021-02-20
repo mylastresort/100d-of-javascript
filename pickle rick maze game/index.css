@@ -4,7 +4,7 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
-/* for the background animation
+/* for the background animation */
 body{
   background: linear-gradient(-46deg,#243d44,#167a8b,#2dea8f,#24b273);
   animation: gradient 10s ease infinite;
@@ -22,7 +22,14 @@ body{
   100%{
     background-position: 0% 50%;
   }
-} */
+}
+
+canvas {
+  background-color: whitesmoke;
+  display: block;
+  margin: 0 auto;
+  margin-top: 9%;
+}
 
 
 body{
