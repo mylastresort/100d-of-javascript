@@ -46,7 +46,7 @@ Demo : https://extra-tictactoe.netlify.app/
 **Day 15 : Snake Game (using canvas element).**
 
 Task : https://codepen.io/pablo1843/full/aWrorK \
-Demo : https://codepen.io/last-resort/full/YzpPNGw
+Demo : https://jsitor.com/preview/-adJniGrM
 
 **Day 16 : Pickle Rick Maze Game (using canvas element).**
 
