@@ -5,7 +5,14 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'oswald':["'Oswald'", 'sans-serif']
+      },
+      TransitionProperty:{
+        'height':'height'
+      }
+    },
   },
   variants: {
     extend: {},

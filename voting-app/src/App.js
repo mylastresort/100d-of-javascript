@@ -1,14 +1,15 @@
-import React from 'react';
-import './App.css';
-import './assets/tailwind.css'
-import Nav from './components/nav'
-import Poll from './components/poll'
-import GetStarted from './components/getStarted'
+import React from "react";
+import "./App.css";
+import './assets/font.css'
+import "./assets/tailwind.css";
+import Nav from "./components/nav";
+import Poll from "./components/poll";
+import GetStarted from "./components/getStarted";
 
 export default () => {
   return (
     <>
-      <div className="text-center app-container bg-gradient-to-r from-red-600 to to-yellow-500">
+      <div className="text-center font-oswald app-container bg-gradient-to-r from-red-600 to to-yellow-500">
         <Nav />
         <h1 className="text-3xl mt-7 text-gray-50">
           Use the #1 Rated Online Poll Maker
@@ -21,4 +22,4 @@ export default () => {
       <GetStarted />
     </>
   );
-}
+};

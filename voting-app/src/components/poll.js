@@ -1,25 +1,41 @@
-import React, { Component } from 'react';
-import {Question, Themes, Settings, Share} from './poll container';
+import React, { useState } from "react";
+import { Question, Themes, Settings, Share, Tab } from "./poll container";
 
-export default class Poll extends Component  {
-  render() {
-    return (
-      <div className="pb-10 ">
-        <div className="relative max-w-lg m-auto overflow-hidden bg-gray-100 rounded-sm">
-          <div className="flex items-center px-8 py-2 pb-5 space-x-16 font-semibold text-gray-700">
-            <div className="cursor-pointer">Question</div>
-            <div className="cursor-pointer">Themes</div>
-            <div className="cursor-pointer">Settings</div>
-            <div className="cursor-pointer">Share</div>
-          </div>
+export default () => {
+  const [section, setSection] = useState("Question");
+  const changeSection = section => setSection(section);
+  return (
+    <div className="pb-10 ">
+      <div className="relative max-w-lg m-auto overflow-hidden bg-gray-100 rounded-md">
+        <div className="flex items-center justify-between px-8 py-2 pb-5 text-sm font-normal text-gray-700">
+          <Tab
+            title="Question"
+            section={section}
+            changeSection={changeSection}
+          />
+          <Tab title="Themes" section={section} changeSection={changeSection} />
+          <Tab
+            title="Settings"
+            section={section}
+            changeSection={changeSection}
+          />
+          <Tab title="Share" section={section} changeSection={changeSection} />
+        </div>
+        {section === "Question" ? (
           <Question />
-          <div className="w-11/12 m-auto mb-2">
-            <button className="w-full p-2 text-2xl text-white bg-green-500 rounded-lg">
-              Create a poll
-            </button>
-          </div>
+        ) : section === "Themes" ? (
+          <Themes />
+        ) : section === "Settings" ? (
+          <Settings />
+        ) : (
+          <Share />
+        )}
+        <div className="w-11/12 m-auto mb-2">
+          <button className="w-full p-2 text-2xl text-white bg-green-500 rounded-lg">
+            Create a poll
+          </button>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
