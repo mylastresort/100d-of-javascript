@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-export default () => {
-  const [link, setLink] = useState('https://linkto.run/p/0WTVQV5H')
+export default ({ id }) => {
+  const [link, setLink] = useState(`http://localhost:3000/${id}`);
   return (
-    <div>Share</div>
-  )
-}
+    <>
+      <a href={link} className="text-2xl font-bold text-blue-400">
+        Preview
+      </a>
+    </>
+  );
+};

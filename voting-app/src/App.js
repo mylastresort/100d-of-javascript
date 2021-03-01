@@ -1,10 +1,8 @@
 import React from "react";
 import "./App.css";
-import './assets/font.css'
+import "./assets/font.css";
 import "./assets/tailwind.css";
-import Nav from "./components/nav";
-import Poll from "./components/poll";
-import GetStarted from "./components/getStarted";
+import { Nav, Poll, GetStarted } from "./components";
 
 export default () => {
   return (
