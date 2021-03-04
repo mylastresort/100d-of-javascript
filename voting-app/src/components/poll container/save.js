@@ -4,7 +4,7 @@ import "firebase/firestore";
 
 export default ({ id, pollObject, changeSection }) => {
   const savePoll = async () => {
-    await firebase.firestore().collection("polls").doc(id).set(pollObject);
+    await firebase.firestore().collection("polls").doc(id).set({...pollObject, votes:[0,0,0,0,0]});
     changeSection('Share');
   }
 
