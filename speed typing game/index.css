@@ -52,6 +52,7 @@ span{
   box-sizing: inherit;
   resize: none;
   caret-color: #e2aa22;
+  opacity: 0.5;
 }
 
 .normal{
@@ -76,4 +77,18 @@ input{
 #score{
   font-size: 200%;
   color: #1e1f1f;
+  font-family:'Nunito', sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+}
+
+#reload {
+  outline: invert;
+  border: 0;
+  font-size: 200%;
+  color: #646669;
+  position: absolute;
+  right: 50%;
+  cursor: pointer;
 }
