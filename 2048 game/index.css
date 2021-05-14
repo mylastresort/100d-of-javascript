@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #feb062e9;
+}
+
+.container {
+  margin: auto;
+  width: 500px;
+  height: 100vh;
+  background-color: rgba(245, 245, 245, 0.633);
+  text-align: center;
+}
+
+h4 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 900;
+  font-size: 200%;
+  padding-top: 100px;
+  color:  #3f3b3b;
+}
+
+.app {
+  grid-template-columns : repeat(4,1fr);
+  grid-template-rows: repeat(4,1fr);
+}
+
+.case{
+  border: 0.5px whitesmoke solid;
+  background-color: rgba(128, 128, 128, 0.413);
+  position: relative;
+
+}
+
+.app{
+  margin: auto;
+  position: relative;
+  width: 55vh;
+  height:70vh;
+  font-size: 70%;
+  margin-top: 10%;
+  display: grid;
+  border-radius: 3px;
+  border: 3px whitesmoke solid;
+}
+/* colors theme => #e7b3b3 #3f3b3b #575151 #feb062 */
